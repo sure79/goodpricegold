@@ -64,7 +64,7 @@ export default function HistoryPage() {
         </div>
         <Link
           href="/apply"
-          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 whitespace-nowrap"
+          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 whitespace-nowrap"
         >
           새 신청
         </Link>
@@ -75,7 +75,7 @@ export default function HistoryPage() {
           <p className="text-gray-500 mb-4">아직 신청 내역이 없습니다.</p>
           <Link
             href="/apply"
-            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700"
+            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
           >
             첫 번째 신청하기
           </Link>
@@ -114,7 +114,7 @@ export default function HistoryPage() {
                         {request.final_price && (
                           <div>
                             <p className="text-gray-500">최종 매입가</p>
-                            <p className="font-medium text-amber-600">
+                            <p className="font-medium text-blue-600">
                               {formatCurrency(request.final_price)}
                             </p>
                           </div>
@@ -124,7 +124,7 @@ export default function HistoryPage() {
                       <div className="mt-3 flex justify-between sm:justify-end">
                         <Link
                           href={`/tracking/${request.request_number}`}
-                          className="text-amber-600 hover:text-amber-500 text-sm font-medium"
+                          className="text-blue-600 hover:text-blue-500 text-sm font-medium"
                         >
                           상세보기 →
                         </Link>

@@ -70,7 +70,7 @@ export default function TrackingIndexPage() {
           <p className="text-gray-500 mb-4">등록된 매입 신청이 없습니다.</p>
           <Link
             href="/apply"
-            className="inline-flex items-center px-4 py-2 rounded-md bg-amber-600 text-white text-sm font-medium hover:bg-amber-700"
+            className="inline-flex items-center px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700"
           >
             매입 신청하러 가기
           </Link>
@@ -98,7 +98,7 @@ export default function TrackingIndexPage() {
                   <p className="text-sm text-gray-500">{group.description}</p>
                 </div>
                 {group.items.length > 0 && (
-                  <span className="inline-flex items-center px-3 py-1 text-sm font-semibold rounded-full bg-amber-50 text-amber-700">
+                  <span className="inline-flex items-center px-3 py-1 text-sm font-semibold rounded-full bg-blue-50 text-blue-700">
                     {group.items.length}건
                   </span>
                 )}
@@ -109,7 +109,7 @@ export default function TrackingIndexPage() {
               ) : (
                 <div className="space-y-3">
                   {group.items.map((request) => (
-                    <article key={request.id} className="border border-gray-100 rounded-lg p-4 hover:border-amber-200 hover:bg-amber-50/40 transition-colors">
+                    <article key={request.id} className="border border-gray-100 rounded-lg p-4 hover:border-blue-200 hover:bg-blue-50/40 transition-colors">
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                         <div>
                           <h3 className="text-sm font-semibold text-gray-900">{request.request_number}</h3>
@@ -134,7 +134,7 @@ export default function TrackingIndexPage() {
                       <div className="mt-4 flex flex-wrap gap-2 sm:justify-between">
                         <Link
                           href={`/tracking/${request.request_number}`}
-                          className="text-sm font-medium text-amber-600 hover:text-amber-500"
+                          className="text-sm font-medium text-blue-600 hover:text-blue-500"
                         >
                           진행 상황 보기 →
                         </Link>

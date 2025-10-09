@@ -154,7 +154,7 @@ export default function AdminReviewsPage() {
         </div>
         <button
           onClick={() => setShowCreateForm(true)}
-          className="bg-amber-600 text-white px-4 py-2 rounded-md hover:bg-amber-700"
+          className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
         >
           새 후기 작성
         </button>
@@ -165,7 +165,7 @@ export default function AdminReviewsPage() {
         <div className="flex space-x-4">
           <button
             onClick={() => setFilterStatus('all')}
-            className={`px-4 py-2 rounded-md ${filterStatus === 'all' ? 'bg-amber-100 text-amber-800' : 'bg-gray-100 text-gray-600'}`}
+            className={`px-4 py-2 rounded-md ${filterStatus === 'all' ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-600'}`}
           >
             전체 ({reviews.length})
           </button>
@@ -206,7 +206,7 @@ export default function AdminReviewsPage() {
                 <input
                   {...register('customer_name', { required: '고객명을 입력해주세요' })}
                   type="text"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="홍길동"
                 />
                 {errors.customer_name && (
@@ -221,7 +221,7 @@ export default function AdminReviewsPage() {
                 <input
                   {...register('transaction_amount', { valueAsNumber: true })}
                   type="number"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="0"
                 />
               </div>
@@ -257,7 +257,7 @@ export default function AdminReviewsPage() {
               <textarea
                 {...register('content', { required: '후기 내용을 입력해주세요' })}
                 rows={4}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="고객 후기를 작성해주세요..."
               />
               {errors.content && (
@@ -269,7 +269,7 @@ export default function AdminReviewsPage() {
               <input
                 {...register('is_public')}
                 type="checkbox"
-                className="h-4 w-4 text-amber-600 focus:ring-amber-500 border-gray-300 rounded"
+                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
               />
               <label className="ml-2 block text-sm text-gray-900">
                 공개 후기로 등록
@@ -287,7 +287,7 @@ export default function AdminReviewsPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-4 py-2 text-sm font-medium text-white bg-amber-600 rounded-md hover:bg-amber-700 disabled:opacity-50"
+                className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 disabled:opacity-50"
               >
                 {isSubmitting ? '등록 중...' : '후기 등록'}
               </button>

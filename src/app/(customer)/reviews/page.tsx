@@ -180,7 +180,7 @@ export default function ReviewsPage() {
         </div>
         <Link
           href="/dashboard"
-          className="text-amber-600 hover:text-amber-500 text-sm font-medium"
+          className="text-blue-600 hover:text-blue-500 text-sm font-medium"
         >
           ← 대시보드
         </Link>
@@ -188,17 +188,17 @@ export default function ReviewsPage() {
 
       {/* 후기 작성 버튼 */}
       {requests.length > 0 && !showWriteForm && (
-        <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 sm:p-6">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 sm:p-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <h3 className="text-lg font-medium text-amber-900">✍️ 후기를 작성해주세요!</h3>
-              <p className="text-sm text-amber-700">
+              <h3 className="text-lg font-medium text-blue-900">✍️ 후기를 작성해주세요!</h3>
+              <p className="text-sm text-blue-700">
                 완료된 거래 {requests.length}건에 대한 후기를 작성할 수 있습니다.
               </p>
             </div>
             <button
               onClick={() => setShowWriteForm(true)}
-              className="bg-amber-600 text-white px-4 py-2 rounded-md hover:bg-amber-700 whitespace-nowrap self-start sm:self-auto"
+              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 whitespace-nowrap self-start sm:self-auto"
             >
               후기 작성
             </button>
@@ -227,7 +227,7 @@ export default function ReviewsPage() {
               <select
                 value={selectedRequest}
                 onChange={(e) => setSelectedRequest(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               >
                 <option value="">후기를 작성할 거래를 선택하세요</option>
@@ -258,7 +258,7 @@ export default function ReviewsPage() {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="후기 제목을 입력해주세요"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
             </div>
@@ -272,7 +272,7 @@ export default function ReviewsPage() {
                 onChange={(e) => setContent(e.target.value)}
                 rows={4}
                 placeholder="서비스 이용 경험을 자세히 작성해주세요."
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
             </div>
@@ -285,7 +285,7 @@ export default function ReviewsPage() {
                 <div className="text-center">
                   <label htmlFor="review-upload" className="cursor-pointer">
                     <div className="text-sm text-gray-600 mb-2">
-                      <span className="bg-amber-600 text-white px-3 py-1 rounded">사진 선택</span>
+                      <span className="bg-blue-600 text-white px-3 py-1 rounded">사진 선택</span>
                       <span className="ml-2">또는 드래그하여 업로드</span>
                     </div>
                     <input
@@ -334,7 +334,7 @@ export default function ReviewsPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 disabled:opacity-50"
+                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <div className="flex items-center">

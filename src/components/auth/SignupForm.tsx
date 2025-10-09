@@ -90,7 +90,7 @@ export default function SignupForm() {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         {/* 회원가입 혜택 배너 */}
-        <div className="bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl p-6 text-center shadow-lg">
+        <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-6 text-center shadow-lg">
           <div className="text-white">
             <div className="text-3xl font-bold mb-2">🎁 신규 가입 혜택</div>
             <div className="text-2xl font-extrabold mb-1">만원 추가 혜택!</div>
@@ -104,7 +104,7 @@ export default function SignupForm() {
           </h2>
           <p className="mt-2 text-center text-sm text-gray-900">
             이미 계정이 있으신가요?{' '}
-            <Link href="/login" className="font-medium text-amber-600 hover:text-amber-500">
+            <Link href="/login" className="font-medium text-blue-600 hover:text-blue-500">
               로그인
             </Link>
           </p>
@@ -131,7 +131,7 @@ export default function SignupForm() {
               <input
                 {...register('name', { required: '이름을 입력해주세요' })}
                 type="text"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                 placeholder="이름을 입력하세요"
               />
               {errors.name && (
@@ -152,7 +152,7 @@ export default function SignupForm() {
                   },
                 })}
                 type="tel"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                 placeholder="010-0000-0000"
               />
               {errors.phone && (
@@ -173,7 +173,7 @@ export default function SignupForm() {
                   },
                 })}
                 type="email"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                 placeholder="이메일을 입력하세요"
               />
               {errors.email && (
@@ -194,7 +194,7 @@ export default function SignupForm() {
                   },
                 })}
                 type="password"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                 placeholder="비밀번호를 입력하세요"
               />
               {errors.password && (
@@ -213,7 +213,7 @@ export default function SignupForm() {
                     value === password || '비밀번호가 일치하지 않습니다',
                 })}
                 type="password"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                 placeholder="비밀번호를 다시 입력하세요"
               />
               {errors.confirmPassword && (
@@ -231,7 +231,7 @@ export default function SignupForm() {
                   <input
                     {...register('agreeTerms', { required: '서비스 이용약관에 동의해주세요' })}
                     type="checkbox"
-                    className="mt-1 h-4 w-4 text-amber-600 focus:ring-amber-500 border-gray-300 rounded"
+                    className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                   />
                   <div className="ml-3 flex-1">
                     <label className="text-sm text-gray-700">
@@ -260,7 +260,7 @@ export default function SignupForm() {
                   <input
                     {...register('agreePrivacy', { required: '개인정보 처리방침에 동의해주세요' })}
                     type="checkbox"
-                    className="mt-1 h-4 w-4 text-amber-600 focus:ring-amber-500 border-gray-300 rounded"
+                    className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                   />
                   <div className="ml-3 flex-1">
                     <label className="text-sm text-gray-700">
@@ -293,7 +293,7 @@ export default function SignupForm() {
                   <input
                     {...register('agreeMarketing')}
                     type="checkbox"
-                    className="mt-1 h-4 w-4 text-amber-600 focus:ring-amber-500 border-gray-300 rounded"
+                    className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                   />
                   <div className="ml-3 flex-1">
                     <label className="text-sm text-gray-700">
@@ -312,7 +312,7 @@ export default function SignupForm() {
             <button
               type="submit"
               disabled={isLoading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <LoadingSpinner size="sm" className="text-white" />

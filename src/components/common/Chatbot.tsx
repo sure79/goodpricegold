@@ -191,7 +191,7 @@ export default function Chatbot() {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 bg-amber-600 text-white p-4 rounded-full shadow-lg hover:bg-amber-700 transition-all z-50"
+        className="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-all z-50"
       >
         💬
       </button>
@@ -201,7 +201,7 @@ export default function Chatbot() {
   return (
     <div className="fixed bottom-6 right-6 w-80 h-96 bg-white rounded-lg shadow-xl border z-50 flex flex-col">
       {/* 헤더 */}
-      <div className="bg-amber-600 text-white p-4 rounded-t-lg flex justify-between items-center">
+      <div className="bg-blue-600 text-white p-4 rounded-t-lg flex justify-between items-center">
         <div>
           <h3 className="font-semibold">🪙 착한금니 고객센터</h3>
           <p className="text-xs opacity-90">친절하게 도와드릴게요!</p>
@@ -224,7 +224,7 @@ export default function Chatbot() {
             <div
               className={`max-w-xs p-3 rounded-lg text-sm ${
                 msg.type === 'user'
-                  ? 'bg-amber-600 text-white'
+                  ? 'bg-blue-600 text-white'
                   : 'bg-gray-100 text-gray-800'
               }`}
             >
@@ -294,7 +294,7 @@ export default function Chatbot() {
             <div className="flex gap-2">
               <button
                 type="submit"
-                className="flex-1 bg-amber-600 text-white py-1 px-2 rounded text-xs hover:bg-amber-700"
+                className="flex-1 bg-blue-600 text-white py-1 px-2 rounded text-xs hover:bg-blue-700"
               >
                 문의 등록
               </button>
@@ -316,12 +316,12 @@ export default function Chatbot() {
             onChange={(e) => setCurrentMessage(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
             placeholder={isLoggedIn ? `${user?.name}님, 궁금한 점을 물어보세요!` : '메시지를 입력하세요...'}
-            className="flex-1 text-sm p-2 border rounded focus:outline-none focus:ring-2 focus:ring-amber-500"
+            className="flex-1 text-sm p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
             onClick={handleSendMessage}
             disabled={!currentMessage.trim()}
-            className="bg-amber-600 text-white px-3 py-2 rounded text-sm hover:bg-amber-700 disabled:opacity-50"
+            className="bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 disabled:opacity-50"
           >
             전송
           </button>

@@ -99,7 +99,7 @@ export default function TrackingTimeline({ request, statusHistory = [] }: Tracki
                   {stepIdx !== steps.length - 1 ? (
                     <span
                       className={`absolute top-4 left-4 -ml-px h-full w-0.5 ${
-                        isCompleted(stepIdx) ? 'bg-amber-600' : 'bg-gray-200'
+                        isCompleted(stepIdx) ? 'bg-blue-600' : 'bg-gray-200'
                       }`}
                       aria-hidden="true"
                     />
@@ -109,9 +109,9 @@ export default function TrackingTimeline({ request, statusHistory = [] }: Tracki
                       <span
                         className={`h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white ${
                           isCompleted(stepIdx)
-                            ? 'bg-amber-600 text-white'
+                            ? 'bg-blue-600 text-white'
                             : isCurrent(stepIdx)
-                            ? 'bg-amber-100 text-amber-600 ring-amber-100'
+                            ? 'bg-blue-100 text-blue-600 ring-blue-100'
                             : 'bg-gray-100 text-gray-400'
                         }`}
                       >
@@ -158,9 +158,9 @@ export default function TrackingTimeline({ request, statusHistory = [] }: Tracki
       )}
 
       {request.status === 'evaluating' && request.evaluation_notes && (
-        <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
-          <h3 className="text-sm font-medium text-orange-900">감정 진행 상황</h3>
-          <p className="text-sm text-orange-700 mt-1">{request.evaluation_notes}</p>
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <h3 className="text-sm font-medium text-blue-900">감정 진행 상황</h3>
+          <p className="text-sm text-blue-800 mt-1">{request.evaluation_notes}</p>
         </div>
       )}
 

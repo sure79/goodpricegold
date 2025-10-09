@@ -71,7 +71,7 @@ export default function SettlementsPage() {
         </div>
         <Link
           href="/dashboard"
-          className="text-amber-600 hover:text-amber-500 text-sm font-medium"
+          className="text-blue-600 hover:text-blue-500 text-sm font-medium"
         >
           ← 대시보드
         </Link>

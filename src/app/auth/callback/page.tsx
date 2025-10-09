@@ -70,7 +70,7 @@ export default function AuthCallbackPage() {
             <p className="text-gray-600 mb-6">{message}</p>
             <button
               onClick={() => router.push('/login')}
-              className="w-full bg-amber-600 text-white py-2 px-4 rounded-md hover:bg-amber-700 transition-colors"
+              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
             >
               로그인 페이지로 이동
             </button>
@@ -93,7 +93,7 @@ export default function AuthCallbackPage() {
           <p className="text-gray-600 mb-6">{message}</p>
           <button
             onClick={() => router.push('/login')}
-            className="w-full bg-amber-600 text-white py-2 px-4 rounded-md hover:bg-amber-700 transition-colors"
+            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
           >
             로그인 페이지로 이동
           </button>

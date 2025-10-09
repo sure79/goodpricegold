@@ -88,16 +88,16 @@ export default function Calculator({ onCalculated }: CalculatorProps) {
 
   return (
     <div className="space-y-6">
-      <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-        <h3 className="text-lg font-medium text-amber-900 mb-2">오늘의 금니 시세</h3>
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <h3 className="text-lg font-medium text-blue-900 mb-2">오늘의 금니 시세</h3>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {Object.entries(GOLD_TYPES).map(([key, label]) => {
             const priceKey = `price_${key}` as keyof GoldPrice
             const price = goldPrice[priceKey] as number
             return (
               <div key={key}>
-                <p className="text-sm text-amber-700">{label}</p>
-                <p className="text-lg font-bold text-amber-900">{formatCurrency(price)}</p>
+                <p className="text-sm text-blue-700">{label}</p>
+                <p className="text-lg font-bold text-blue-900">{formatCurrency(price)}</p>
               </div>
             )
           })}
@@ -109,7 +109,7 @@ export default function Calculator({ onCalculated }: CalculatorProps) {
           <h3 className="text-lg font-medium text-gray-900">매입 품목</h3>
           <button
             onClick={addItem}
-            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700"
+            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
           >
             품목 추가
           </button>
@@ -124,7 +124,7 @@ export default function Calculator({ onCalculated }: CalculatorProps) {
                   <select
                     value={item.type}
                     onChange={(e) => updateItem(index, 'type', e.target.value as GoldType)}
-                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   >
                     {Object.entries(GOLD_TYPES).map(([key, label]) => (
                       <option key={key} value={key}>{label}</option>
@@ -139,7 +139,7 @@ export default function Calculator({ onCalculated }: CalculatorProps) {
                     min="1"
                     value={item.quantity}
                     onChange={(e) => updateItem(index, 'quantity', parseInt(e.target.value) || 1)}
-                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
 
@@ -168,7 +168,7 @@ export default function Calculator({ onCalculated }: CalculatorProps) {
             </p>
           </div>
           <div className="text-right">
-            <p className="text-3xl font-bold text-amber-600">{formatCurrency(totalPrice)}</p>
+            <p className="text-3xl font-bold text-blue-600">{formatCurrency(totalPrice)}</p>
           </div>
         </div>
       </div>

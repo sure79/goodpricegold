@@ -47,7 +47,7 @@ export default function StatsCards({ stats }: StatsCardsProps) {
       name: '평균 처리시간',
       value: stats.avgProcessingTime.toFixed(1),
       icon: '⚡',
-      color: 'bg-orange-500',
+      color: 'bg-blue-600',
       suffix: '일'
     },
     {

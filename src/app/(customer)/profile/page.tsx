@@ -72,21 +72,21 @@ export default function ProfilePage() {
         </div>
       </section>
 
-      <section className="bg-amber-50 border border-amber-200 rounded-lg p-5 sm:p-6">
-        <h2 className="text-lg font-semibold text-amber-900 mb-3">정보 변경이 필요하신가요?</h2>
-        <p className="text-sm text-amber-800">
+      <section className="bg-blue-50 border border-blue-200 rounded-lg p-5 sm:p-6">
+        <h2 className="text-lg font-semibold text-blue-900 mb-3">정보 변경이 필요하신가요?</h2>
+        <p className="text-sm text-blue-800">
           고객센터로 연락주시면 신속하게 도와드리겠습니다. 개인정보 보호를 위해 웹에서 직접 수정 기능은 준비 중입니다.
         </p>
         <div className="mt-4 flex flex-col sm:flex-row gap-3">
           <a
             href="tel:01012345678"
-            className="inline-flex items-center justify-center px-4 py-2 bg-amber-600 text-white text-sm font-medium rounded-md hover:bg-amber-700"
+            className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700"
           >
             고객센터 전화 (010-1234-5678)
           </a>
           <Link
             href="mailto:support@geumnikkaeb.com"
-            className="inline-flex items-center justify-center px-4 py-2 bg-white text-amber-700 text-sm font-medium rounded-md border border-amber-200 hover:bg-amber-100"
+            className="inline-flex items-center justify-center px-4 py-2 bg-white text-blue-700 text-sm font-medium rounded-md border border-blue-200 hover:bg-blue-100"
           >
             이메일 문의
           </Link>

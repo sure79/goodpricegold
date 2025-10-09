@@ -73,7 +73,7 @@ export default function TrackingPage() {
         <p className="text-gray-500">{error || '신청 정보를 찾을 수 없습니다.'}</p>
         <Link
           href="/history"
-          className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700"
+          className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
         >
           신청 내역으로 돌아가기
         </Link>
@@ -88,7 +88,7 @@ export default function TrackingPage() {
           <h1 className="text-2xl font-bold text-gray-900">매입 신청 추적</h1>
           <Link
             href="/history"
-            className="text-amber-600 hover:text-amber-500 text-sm font-medium"
+            className="text-blue-600 hover:text-blue-500 text-sm font-medium"
           >
             ← 전체 내역
           </Link>
@@ -110,7 +110,7 @@ export default function TrackingPage() {
               <p><span className="font-medium">연락처:</span> {request.phone}</p>
               <p><span className="font-medium">신청일:</span> {formatDate(request.created_at)}</p>
               <p><span className="font-medium">상태:</span>
-                <span className="ml-2 inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-amber-100 text-amber-800">
+                <span className="ml-2 inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">
                   {getStatusText(request.status)}
                 </span>
               </p>
@@ -185,10 +185,10 @@ export default function TrackingPage() {
             )}
           </div>
 
-          <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+          <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
             <div className="flex items-center">
-              <div className="text-amber-400 mr-2">💡</div>
-              <div className="text-sm text-amber-800">
+              <div className="text-blue-400 mr-2">💡</div>
+              <div className="text-sm text-blue-800">
                 <p className="font-medium">감정 결과에 대해</p>
                 <p>감정 결과에 동의하시면 &quot;확인 완료&quot; 버튼을 클릭해주세요. 정산 절차가 시작됩니다.</p>
               </div>
@@ -202,9 +202,9 @@ export default function TrackingPage() {
 
       {/* 발송 안내 (shipped 상태가 아닐 때) */}
       {request.status === 'pending' && (
-        <div className="bg-amber-50 border border-amber-200 rounded-lg p-6">
-          <h3 className="text-lg font-medium text-amber-900 mb-3">📦 금니 발송 안내</h3>
-          <div className="space-y-3 text-sm text-amber-800">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+          <h3 className="text-lg font-medium text-blue-900 mb-3">📦 금니 발송 안내</h3>
+          <div className="space-y-3 text-sm text-blue-800">
             <div>
               <h4 className="font-medium">발송 주소</h4>
               <p>서울특별시 강남구 테헤란로 123, 착한금니 빌딩 2층</p>
@@ -219,7 +219,7 @@ export default function TrackingPage() {
                 <li>신청번호 {request.request_number} 메모 동봉</li>
               </ul>
             </div>
-            <div className="bg-amber-100 border border-amber-300 rounded p-3">
+            <div className="bg-blue-100 border border-blue-300 rounded p-3">
               <p className="font-medium">💡 발송 후에는</p>
               <p>운송장 번호와 택배사명을 고객센터(1588-1234)로 알려주시면 더욱 빠른 처리가 가능합니다.</p>
             </div>

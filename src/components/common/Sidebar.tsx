@@ -61,14 +61,14 @@ export default function Sidebar() {
                   href={item.href}
                   className={cn(
                     isActive
-                      ? 'bg-amber-100 text-amber-900'
+                      ? 'bg-blue-100 text-blue-900'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
                     'group flex items-center px-3 lg:px-2 py-2 text-xs lg:text-sm font-medium rounded-md whitespace-nowrap flex-shrink-0'
                   )}
                 >
                   <item.icon
                     className={cn(
-                      isActive ? 'text-amber-500' : 'text-gray-400 group-hover:text-gray-500',
+                      isActive ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500',
                       'mr-2 lg:mr-3 flex-shrink-0 h-5 w-5 lg:h-6 lg:w-6'
                     )}
                     aria-hidden="true"

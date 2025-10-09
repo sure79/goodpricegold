@@ -15,13 +15,13 @@ export default function PublicReviewsPage() {
           <div className="flex justify-center gap-3 pt-2">
             <Link
               href="/signup"
-              className="inline-flex items-center px-4 py-2 rounded-md bg-amber-600 text-white text-sm font-medium hover:bg-amber-700"
+              className="inline-flex items-center px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700"
             >
               지금 시작하기
             </Link>
             <Link
               href="/login"
-              className="inline-flex items-center px-4 py-2 rounded-md bg-white text-amber-700 text-sm font-medium border border-amber-200 hover:bg-amber-50"
+              className="inline-flex items-center px-4 py-2 rounded-md bg-white text-blue-700 text-sm font-medium border border-blue-200 hover:bg-blue-50"
             >
               로그인
             </Link>
@@ -30,7 +30,7 @@ export default function PublicReviewsPage() {
 
         <ReviewsDisplay />
 
-        <section className="bg-white border border-amber-100 rounded-lg p-6">
+        <section className="bg-white border border-blue-100 rounded-lg p-6">
           <h2 className="text-lg font-semibold text-gray-900">후기를 남기고 싶으신가요?</h2>
           <p className="mt-2 text-sm text-gray-600">
             정산까지 완료한 고객이라면 마이페이지 &gt; 후기관리 메뉴에서 직접 후기를 작성하실 수 있습니다. 서비스 개선에 큰 힘이 됩니다.
@@ -38,7 +38,7 @@ export default function PublicReviewsPage() {
           <div className="mt-4">
             <Link
               href="/login"
-              className="inline-flex items-center px-4 py-2 rounded-md bg-amber-600 text-white text-sm font-medium hover:bg-amber-700"
+              className="inline-flex items-center px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700"
             >
               후기 작성하러 가기
             </Link>

@@ -72,21 +72,21 @@ export default function GoldPriceDisplay() {
   }
 
   const goldTypeColors = {
-    inlay: { bg: 'from-amber-400 to-amber-500', border: 'border-amber-500', text: 'text-amber-600' },
-    porcelain: { bg: 'from-yellow-400 to-yellow-500', border: 'border-yellow-500', text: 'text-yellow-600' },
-    crown_pt: { bg: 'from-orange-400 to-orange-500', border: 'border-orange-500', text: 'text-orange-600' },
-    crown_st: { bg: 'from-rose-400 to-rose-500', border: 'border-rose-500', text: 'text-rose-600' },
-    crown_at: { bg: 'from-red-400 to-red-500', border: 'border-red-500', text: 'text-red-600' }
+    inlay: { bg: 'from-blue-400 to-blue-500', border: 'border-blue-500', text: 'text-blue-600' },
+    porcelain: { bg: 'from-blue-300 to-blue-400', border: 'border-blue-400', text: 'text-blue-500' },
+    crown_pt: { bg: 'from-blue-500 to-blue-600', border: 'border-blue-600', text: 'text-blue-700' },
+    crown_st: { bg: 'from-blue-400 to-blue-500', border: 'border-blue-500', text: 'text-blue-600' },
+    crown_at: { bg: 'from-blue-600 to-blue-700', border: 'border-blue-700', text: 'text-blue-800' }
   }
 
   return (
-    <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-lg border border-yellow-200 p-4 md:p-6">
+    <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-lg border border-blue-200 p-4 md:p-6">
       <div className="text-center mb-4 md:mb-6">
-        <div className="inline-flex items-center bg-yellow-600 text-white px-4 py-2 rounded-full text-base md:text-sm font-semibold mb-2">
+        <div className="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-full text-base md:text-sm font-semibold mb-2">
           <span className="mr-2 text-xl md:text-base">📊</span>
           실시간 금니 시세
         </div>
-        <div className="text-yellow-700 text-base md:text-sm font-medium">
+        <div className="text-blue-700 text-base md:text-sm font-medium">
           {formatDate(goldPrice.date)} 기준
         </div>
       </div>

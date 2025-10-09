@@ -269,7 +269,7 @@ export default function RequestManagement() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="신청번호, 고객명, 전화번호, 이메일"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -281,7 +281,7 @@ export default function RequestManagement() {
               id="status"
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="all">전체</option>
               {STATUS_OPTIONS.map(option => (
@@ -300,7 +300,7 @@ export default function RequestManagement() {
               id="date"
               value={dateFilter}
               onChange={(e) => setDateFilter(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="all">전체</option>
               <option value="today">오늘</option>
@@ -312,7 +312,7 @@ export default function RequestManagement() {
           <div className="flex items-end">
             <button
               onClick={fetchRequests}
-              className="w-full px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-colors"
+              className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
             >
               새로고침
             </button>
@@ -465,7 +465,7 @@ export default function RequestManagement() {
                           value={request.status}
                           onChange={(e) => handleStatusUpdate(request.id, e.target.value)}
                           disabled={updating === request.id}
-                          className="text-sm border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                          className="text-sm border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         >
                           {STATUS_OPTIONS.map(option => (
                             <option key={option.value} value={option.value}>
@@ -563,7 +563,7 @@ export default function RequestManagement() {
                       step="0.01"
                       value={evaluationData.final_weight}
                       onChange={(e) => setEvaluationData(prev => ({ ...prev, final_weight: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                   </div>
 
@@ -575,7 +575,7 @@ export default function RequestManagement() {
                       type="number"
                       value={evaluationData.final_price}
                       onChange={(e) => setEvaluationData(prev => ({ ...prev, final_price: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                   </div>
                 </div>
@@ -589,7 +589,7 @@ export default function RequestManagement() {
                     value={evaluationData.evaluation_notes}
                     onChange={(e) => setEvaluationData(prev => ({ ...prev, evaluation_notes: e.target.value }))}
                     placeholder="감정 결과, 특이사항 등을 입력하세요"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
 
@@ -602,7 +602,7 @@ export default function RequestManagement() {
                     <div className="text-center">
                       <label htmlFor="evaluation-upload" className="cursor-pointer">
                         <div className="text-sm text-gray-600 mb-2">
-                          <span className="bg-amber-600 text-white px-3 py-1 rounded">사진 선택</span>
+                          <span className="bg-blue-600 text-white px-3 py-1 rounded">사진 선택</span>
                           <span className="ml-2">또는 드래그하여 업로드</span>
                         </div>
                         <input
@@ -670,7 +670,7 @@ export default function RequestManagement() {
                 <button
                   onClick={submitEvaluationResult}
                   disabled={isSubmittingEvaluation}
-                  className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 disabled:opacity-50"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50"
                 >
                   {isSubmittingEvaluation ? (
                     <div className="flex items-center">

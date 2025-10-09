@@ -122,12 +122,12 @@ export default function AdminDashboard() {
 
             <Link
               href="/admin/settings"
-              className="bg-amber-50 border border-amber-200 rounded-lg p-4 hover:bg-amber-100 transition-colors"
+              className="bg-blue-50 border border-blue-200 rounded-lg p-4 hover:bg-blue-100 transition-colors"
             >
               <div className="text-center">
                 <div className="text-2xl mb-2">⚙️</div>
-                <h4 className="font-medium text-amber-900">설정</h4>
-                <p className="text-sm text-amber-700">시세 및 시스템 설정</p>
+                <h4 className="font-medium text-blue-900">설정</h4>
+                <p className="text-sm text-blue-700">시세 및 시스템 설정</p>
               </div>
             </Link>
           </div>
@@ -140,7 +140,7 @@ export default function AdminDashboard() {
           <div className="px-4 py-5 sm:p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg leading-6 font-medium text-gray-900">우선 처리 항목</h3>
-              <Link href="/admin/requests" className="text-amber-600 hover:text-amber-500 text-sm font-medium">
+              <Link href="/admin/requests" className="text-blue-600 hover:text-blue-500 text-sm font-medium">
                 전체 보기
               </Link>
             </div>
@@ -176,7 +176,7 @@ export default function AdminDashboard() {
           <div className="px-4 py-5 sm:p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg leading-6 font-medium text-gray-900">최근 신청</h3>
-              <Link href="/admin/requests" className="text-amber-600 hover:text-amber-500 text-sm font-medium">
+              <Link href="/admin/requests" className="text-blue-600 hover:text-blue-500 text-sm font-medium">
                 전체 보기
               </Link>
             </div>

@@ -107,12 +107,12 @@ export default function GoldPriceHistoryPage() {
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    <span className="font-semibold text-amber-600">
+                    <span className="font-semibold text-blue-600">
                       {formatCurrency(item.price_18k)}원/g
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    <span className="font-semibold text-orange-600">
+                    <span className="font-semibold text-blue-700">
                       {formatCurrency(item.price_14k)}원/g
                     </span>
                   </td>
@@ -183,7 +183,7 @@ export default function GoldPriceHistoryPage() {
                       onClick={() => setCurrentPage(i + 1)}
                       className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
                         currentPage === i + 1
-                          ? 'z-10 bg-amber-50 border-amber-500 text-amber-600'
+                          ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
                           : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
                       }`}
                     >

@@ -158,7 +158,7 @@ export default function GoldPriceManagement() {
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
               <div className="flex flex-col">
                 <span className="text-xs text-gray-500 mb-1">인레이</span>
-                <span className="font-semibold text-amber-600">
+                <span className="font-semibold text-blue-600">
                   {formatPrice(goldPrice.price_inlay)}원
                 </span>
               </div>
@@ -170,7 +170,7 @@ export default function GoldPriceManagement() {
               </div>
               <div className="flex flex-col">
                 <span className="text-xs text-gray-500 mb-1">크라운PT</span>
-                <span className="font-semibold text-orange-600">
+                <span className="font-semibold text-blue-700">
                   {formatPrice(goldPrice.price_crown_pt)}원
                 </span>
               </div>
@@ -208,7 +208,7 @@ export default function GoldPriceManagement() {
                     name={`price_${key}`}
                     value={formData[`price_${key}` as keyof typeof formData]}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     placeholder={`예: ${key === 'inlay' ? '161670' : key === 'porcelain' ? '169890' : key === 'crown_pt' ? '144310' : key === 'crown_st' ? '112350' : '91340'}`}
                     required
                   />
@@ -240,7 +240,7 @@ export default function GoldPriceManagement() {
           <div className="flex justify-between items-center">
             <a
               href="/admin/gold-prices"
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               📊 시세 히스토리 보기
             </a>
@@ -248,7 +248,7 @@ export default function GoldPriceManagement() {
               <button
                 type="button"
                 onClick={fetchCurrentPrice}
-                className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 새로고침
               </button>
@@ -263,7 +263,7 @@ export default function GoldPriceManagement() {
               <button
                 type="submit"
                 disabled={saving}
-                className="px-6 py-2 text-sm font-medium text-white bg-amber-600 border border-transparent rounded-md hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-6 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {saving ? '저장 중...' : '시세 업데이트'}
               </button>

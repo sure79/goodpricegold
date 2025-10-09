@@ -7,7 +7,7 @@ const features = [
     icon: '⚡',
     title: '감정 후 즉시 정산',
     description: '당일 입금',
-    bgColor: 'from-yellow-400 to-orange-400'
+    bgColor: 'from-blue-400 to-blue-600'
   },
   {
     icon: '🔍',
@@ -19,7 +19,7 @@ const features = [
     icon: '💰',
     title: '타사 대비 최고 가격',
     description: '최고가 보장',
-    bgColor: 'from-orange-400 to-red-400'
+    bgColor: 'from-blue-500 to-blue-700'
   }
 ]
 

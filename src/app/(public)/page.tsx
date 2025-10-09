@@ -31,11 +31,11 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* 상단 프로모션 배너 */}
-      <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white py-3 px-4 text-center">
+      <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-4 text-center">
         <div className="max-w-7xl mx-auto flex items-center justify-center gap-2">
           <span className="text-xl">🎁</span>
           <span className="font-bold text-sm md:text-base">신규 회원 가입 시 만원 추가 혜택!</span>
-          <Link href="/signup" className="ml-2 bg-white text-amber-600 px-4 py-1 rounded-full text-xs md:text-sm font-semibold hover:bg-gray-100 transition-colors">
+          <Link href="/signup" className="ml-2 bg-white text-blue-600 px-4 py-1 rounded-full text-xs md:text-sm font-semibold hover:bg-gray-100 transition-colors">
             지금 가입하기
           </Link>
         </div>
@@ -107,7 +107,7 @@ export default function HomePage() {
             {/* 메인 제목 */}
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
               <span className="block">대한민국 NO.1</span>
-              <span className="block" style={{color: '#d4af37'}}>금니매입 전문</span>
+              <span className="block text-blue-600">금니매입 전문</span>
             </h1>
 
             {/* 서브 제목 */}
@@ -199,7 +199,7 @@ export default function HomePage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center mb-12">
-            <p className="text-sm font-semibold tracking-wide uppercase mb-3" style={{color: '#d4af37'}}>이용 방법</p>
+            <p className="text-sm font-semibold tracking-wide uppercase mb-3 text-blue-600">이용 방법</p>
             <p className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               금니 매입이 처음이라도, 이렇게 진행돼요
             </p>
@@ -234,7 +234,7 @@ export default function HomePage() {
       <div className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center mb-12">
-            <p className="text-sm font-semibold tracking-wide uppercase mb-3" style={{color: '#d4af37'}}>특징</p>
+            <p className="text-sm font-semibold tracking-wide uppercase mb-3 text-blue-600">특징</p>
             <p className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               왜 착한금니를 선택해야 할까요?
             </p>

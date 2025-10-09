@@ -137,7 +137,7 @@ export default function ApplyPage() {
         status: 'pending' as const,
         customer_images: imageUrls, // 업로드된 사진 URL들 추가
         items: [{
-          type: data.item_type,
+          type: '18k' as GoldType, // 기본값으로 18k 설정
           quantity: data.quantity || 1,
           weight: data.estimated_weight || 0,
           description: data.item_description
@@ -204,7 +204,7 @@ export default function ApplyPage() {
                 <input
                   {...register('customer_name', { required: '이름을 입력해주세요' })}
                   type="text"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 {errors.customer_name && (
                   <p className="mt-1 text-sm text-red-600">{errors.customer_name.message}</p>
@@ -219,7 +219,7 @@ export default function ApplyPage() {
                   {...register('phone', { required: '휴대폰 번호를 입력해주세요' })}
                   type="tel"
                   placeholder="010-1234-5678"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 {errors.phone && (
                   <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
@@ -234,7 +234,7 @@ export default function ApplyPage() {
                 </label>
                 <select
                   {...register('bank_name', { required: '은행을 선택해주세요' })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="">은행 선택</option>
                   <option value="국민은행">국민은행</option>
@@ -275,7 +275,7 @@ export default function ApplyPage() {
                   })}
                   type="text"
                   placeholder="123456-78-901234"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 {errors.account_number && (
                   <p className="mt-1 text-sm text-red-600">{errors.account_number.message}</p>
@@ -292,25 +292,7 @@ export default function ApplyPage() {
           <div className="space-y-4">
             <h3 className="text-lg font-medium text-gray-900">금니 정보</h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  금니 종류 *
-                </label>
-                <select
-                  {...register('item_type', { required: '금니 종류를 선택해주세요' })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
-                >
-                  <option value="">선택해주세요</option>
-                  {Object.entries(GOLD_TYPES).map(([key, label]) => (
-                    <option key={key} value={key}>{label}</option>
-                  ))}
-                </select>
-                {errors.item_type && (
-                  <p className="mt-1 text-sm text-red-600">{errors.item_type.message}</p>
-                )}
-              </div>
-
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   개수 *
@@ -322,7 +304,7 @@ export default function ApplyPage() {
                   })}
                   type="number"
                   defaultValue={1}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 {errors.quantity && (
                   <p className="mt-1 text-sm text-red-600">{errors.quantity.message}</p>
@@ -340,7 +322,7 @@ export default function ApplyPage() {
                   type="number"
                   step="0.1"
                   placeholder="모르면 비워두세요"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 {errors.estimated_weight && (
                   <p className="mt-1 text-sm text-red-600">{errors.estimated_weight.message}</p>
@@ -350,14 +332,17 @@ export default function ApplyPage() {
 
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  금니 설명
+                  금니 설명 *
                 </label>
                 <textarea
-                  {...register('item_description')}
+                  {...register('item_description', { required: '금니 설명을 입력해주세요' })}
                   rows={3}
                   placeholder="반지, 목걸이, 귀걸이 등 금니의 종류와 특징을 간단히 설명해주세요"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
+                {errors.item_description && (
+                  <p className="mt-1 text-sm text-red-600">{errors.item_description.message}</p>
+                )}
               </div>
             </div>
           </div>
@@ -369,29 +354,27 @@ export default function ApplyPage() {
               정확한 감정을 위해 다양한 각도에서 촬영한 사진을 업로드해주세요. (최대 5장)
             </p>
 
-            <div className="border-2 border-dashed border-gray-300 rounded-lg p-6">
+            <label htmlFor="photo-upload" className="block border-2 border-dashed border-gray-300 rounded-lg p-6 cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition-colors">
               <div className="text-center">
                 <div className="mx-auto h-12 w-12 text-gray-400 mb-4">
                   📷
                 </div>
                 <div className="text-sm text-gray-600 mb-4">
-                  <label htmlFor="photo-upload" className="relative cursor-pointer bg-white rounded-md font-medium text-amber-600 hover:text-amber-500">
-                    <span>사진 선택</span>
-                    <input
-                      id="photo-upload"
-                      name="photo-upload"
-                      type="file"
-                      multiple
-                      accept="image/*"
-                      onChange={handlePhotoUpload}
-                      className="sr-only"
-                    />
-                  </label>
+                  <span className="font-medium text-blue-600">사진 선택</span>
                   <span className="pl-1">하거나 드래그하여 업로드</span>
                 </div>
                 <p className="text-xs text-gray-500">PNG, JPG, JPEG 파일 (용량 제한 없음)</p>
               </div>
-            </div>
+              <input
+                id="photo-upload"
+                name="photo-upload"
+                type="file"
+                multiple
+                accept="image/*"
+                onChange={handlePhotoUpload}
+                className="sr-only"
+              />
+            </label>
 
             {/* 사진 미리보기 */}
             {previewUrls.length > 0 && (
@@ -437,7 +420,7 @@ export default function ApplyPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="px-8 py-3 bg-amber-600 text-white font-medium rounded-md hover:bg-amber-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-8 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <div className="flex items-center">
@@ -464,18 +447,18 @@ export default function ApplyPage() {
               <p className="text-sm text-gray-600">신청번호: <span className="font-mono font-semibold">{requestNumber}</span></p>
             </div>
 
-            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
-              <h4 className="font-semibold text-amber-800 mb-3 flex items-center">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+              <h4 className="font-semibold text-blue-800 mb-3 flex items-center">
                 📦 금니 발송 안내
               </h4>
               <div className="space-y-3">
                 <div>
-                  <p className="text-sm text-amber-700 font-medium mb-2">보내실 주소:</p>
-                  <div className="bg-white border border-amber-300 rounded p-3">
+                  <p className="text-sm text-blue-700 font-medium mb-2">보내실 주소:</p>
+                  <div className="bg-white border border-blue-300 rounded p-3">
                     <p className="font-mono text-sm text-gray-800">{companyAddress}</p>
                     <button
                       onClick={() => copyToClipboard(companyAddress)}
-                      className="mt-2 text-xs bg-amber-600 text-white px-3 py-1 rounded hover:bg-amber-700"
+                      className="mt-2 text-xs bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
                     >
                       📋 주소 복사
                     </button>
@@ -483,12 +466,12 @@ export default function ApplyPage() {
                 </div>
 
                 <div>
-                  <p className="text-sm text-amber-700 font-medium mb-2">받는 분:</p>
-                  <div className="bg-white border border-amber-300 rounded p-3">
+                  <p className="text-sm text-blue-700 font-medium mb-2">받는 분:</p>
+                  <div className="bg-white border border-blue-300 rounded p-3">
                     <p className="font-mono text-sm text-gray-800">착한금니 감정팀</p>
                     <button
                       onClick={() => copyToClipboard('착한금니 감정팀')}
-                      className="mt-2 text-xs bg-amber-600 text-white px-3 py-1 rounded hover:bg-amber-700"
+                      className="mt-2 text-xs bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
                     >
                       📋 이름 복사
                     </button>
@@ -496,12 +479,12 @@ export default function ApplyPage() {
                 </div>
 
                 <div>
-                  <p className="text-sm text-amber-700 font-medium mb-2">연락처:</p>
-                  <div className="bg-white border border-amber-300 rounded p-3">
+                  <p className="text-sm text-blue-700 font-medium mb-2">연락처:</p>
+                  <div className="bg-white border border-blue-300 rounded p-3">
                     <p className="font-mono text-sm text-gray-800">010-1234-5678</p>
                     <button
                       onClick={() => copyToClipboard('010-1234-5678')}
-                      className="mt-2 text-xs bg-amber-600 text-white px-3 py-1 rounded hover:bg-amber-700"
+                      className="mt-2 text-xs bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
                     >
                       📋 번호 복사
                     </button>
@@ -522,7 +505,7 @@ export default function ApplyPage() {
             <div className="flex flex-col gap-3">
               <button
                 onClick={() => copyToClipboard(`${companyAddress}\n착한금니 감정팀\n010-1234-5678\n신청번호: ${requestNumber}`)}
-                className="w-full bg-amber-600 text-white py-3 px-4 rounded-md hover:bg-amber-700 font-medium"
+                className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 font-medium"
               >
                 📋 전체 정보 복사
               </button>

@@ -89,8 +89,8 @@ export default function CustomerDashboard() {
       </div>
 
       {/* 진행 현황 요약 */}
-      <div className="bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200 rounded-lg p-6">
-        <h2 className="text-lg font-semibold text-amber-900 mb-4">📊 현재 진행 현황</h2>
+      <div className="bg-gradient-to-r from-blue-50 to-yellow-50 border border-blue-200 rounded-lg p-6">
+        <h2 className="text-lg font-semibold text-blue-900 mb-4">📊 현재 진행 현황</h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           <div className="text-center">
             <div className="text-2xl font-bold text-blue-600">
@@ -125,7 +125,7 @@ export default function CustomerDashboard() {
           <div className="p-5">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <div className="w-8 h-8 bg-amber-500 rounded-md flex items-center justify-center">
+                <div className="w-8 h-8 bg-blue-500 rounded-md flex items-center justify-center">
                   <span className="text-white font-semibold">📦</span>
                 </div>
               </div>
@@ -183,12 +183,12 @@ export default function CustomerDashboard() {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/apply"
-              className="bg-amber-50 border border-amber-200 rounded-lg p-4 hover:bg-amber-100 transition-colors"
+              className="bg-blue-50 border border-blue-200 rounded-lg p-4 hover:bg-blue-100 transition-colors"
             >
               <div className="text-center">
                 <div className="text-2xl mb-2">📝</div>
-                <h4 className="font-medium text-amber-900">매입 신청</h4>
-                <p className="text-sm text-amber-700">새로운 금니 매입 신청</p>
+                <h4 className="font-medium text-blue-900">매입 신청</h4>
+                <p className="text-sm text-blue-700">새로운 금니 매입 신청</p>
               </div>
             </Link>
 
@@ -223,7 +223,7 @@ export default function CustomerDashboard() {
           <div className="px-4 py-5 sm:p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg leading-6 font-medium text-gray-900">최근 신청 내역</h3>
-              <Link href="/history" className="text-amber-600 hover:text-amber-500 text-sm font-medium">
+              <Link href="/history" className="text-blue-600 hover:text-blue-500 text-sm font-medium">
                 전체 보기
               </Link>
             </div>
@@ -301,7 +301,7 @@ export default function CustomerDashboard() {
                         <div className="mt-3 flex justify-between items-center">
                           <Link
                             href={`/tracking/${request.request_number}`}
-                            className="text-amber-600 hover:text-amber-700 text-sm font-medium"
+                            className="text-blue-600 hover:text-blue-700 text-sm font-medium"
                           >
                             자세히 보기 →
                           </Link>
