@@ -181,10 +181,15 @@ export default function HomePage() {
               { icon: '🔍', title: '전문 감정', description: '전문 감정사가 순도·중량을 측정합니다' },
               { icon: '👍', title: '결과 확인', description: '감정 결과를 확인하고 승인하세요' },
               { icon: '💳', title: '정산 완료', description: '확인 즉시 정산이 진행되고 당일 입금됩니다' },
-            ].map((step) => (
+            ].map((step, index) => (
               <div key={step.title} className="bg-white border border-gray-200 rounded-xl p-5 flex items-start space-x-3 hover:border-gray-300 hover:shadow-sm transition-all">
-                <div className="text-2xl flex-shrink-0" aria-hidden>
-                  {step.icon}
+                <div className="flex flex-col items-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm mb-2">
+                    {index + 1}
+                  </div>
+                  <div className="text-2xl" aria-hidden>
+                    {step.icon}
+                  </div>
                 </div>
                 <div>
                   <h3 className="text-base font-semibold text-gray-900 mb-1.5">{step.title}</h3>

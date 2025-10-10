@@ -83,3 +83,42 @@ export function getStatusText(status: string): string {
 
   return statusTexts[status as keyof typeof statusTexts] || status
 }
+
+/**
+ * 이름 마스킹: 중간 글자를 *로 치환
+ * 예: 김철수 -> 김*수, 이영희 -> 이*희, 박민정 -> 박*정
+ */
+export function maskName(name: string): string {
+  if (!name || name.length < 2) return name
+
+  if (name.length === 2) {
+    return name[0] + '*'
+  }
+
+  const first = name[0]
+  const last = name[name.length - 1]
+  const middle = '*'.repeat(name.length - 2)
+
+  return first + middle + last
+}
+
+/**
+ * 전화번호 마스킹: 중간 4자리를 ****로 치환
+ * 예: 010-1234-5678 -> 010-****-5678
+ */
+export function maskPhone(phone: string): string {
+  if (!phone) return phone
+
+  // 숫자만 추출
+  const numbers = phone.replace(/[^0-9]/g, '')
+
+  if (numbers.length === 11) {
+    // 010-1234-5678 형식
+    return numbers.slice(0, 3) + '-****-' + numbers.slice(7)
+  } else if (numbers.length === 10) {
+    // 02-1234-5678 형식
+    return numbers.slice(0, 2) + '-****-' + numbers.slice(6)
+  }
+
+  return phone
+}
