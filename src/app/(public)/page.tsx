@@ -140,6 +140,23 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* 금니 종류 안내 */}
+      <div className="py-12 bg-white border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+              금니 종류 안내
+            </h2>
+            <p className="text-base text-gray-600">
+              다양한 금니 종류를 확인하세요
+            </p>
+          </div>
+          <div className="w-full">
+            <img src="/금니종류.png" alt="금니 종류 안내" className="w-full h-auto rounded-lg shadow-lg" />
+          </div>
+        </div>
+      </div>
+
       {/* 시세, 신청현황, 후기 섹션 */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
