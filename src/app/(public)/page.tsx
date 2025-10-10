@@ -32,7 +32,14 @@ export default function HomePage() {
       {/* 상단 헤더 */}
       <header className="bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-end items-center py-4">
+          <div className="flex justify-between items-center py-4">
+            {/* 왼쪽: 로고 및 사이트명 */}
+            <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+              <img src="/로고3.png" alt="착한금니 로고" className="h-12 w-auto" />
+              <span className="text-xl font-bold text-gray-900">착한금니</span>
+            </Link>
+
+            {/* 오른쪽: 전화번호 및 버튼 */}
             <div className="flex items-center gap-4">
               <div className="flex items-center space-x-2 text-gray-900">
                 <span className="text-xl">📞</span>
@@ -80,6 +87,18 @@ export default function HomePage() {
       {/* 메인 이미지 */}
       <div className="w-full">
         <img src="/main.png" alt="금니깨비 메인" className="w-full h-auto" />
+      </div>
+
+      {/* 소개 문구 */}
+      <div className="bg-gradient-to-b from-blue-50 to-white py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+            대한민국 최고가 매입 금니 전문 업체
+          </h2>
+          <p className="text-base md:text-lg text-gray-600">
+            15년 전통 • 정확한 감정 • 당일 입금 • 최고가 보장
+          </p>
+        </div>
       </div>
 
       {/* CTA 버튼 섹션 */}
@@ -222,7 +241,10 @@ export default function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               {/* 회사 정보 */}
               <div>
-                <h3 className="text-lg font-bold text-white mb-4">회사 정보</h3>
+                <div className="flex items-center space-x-3 mb-4">
+                  <img src="/로고3.png" alt="착한금니 로고" className="h-16 w-auto" />
+                  <h3 className="text-lg font-bold text-white">착한금니</h3>
+                </div>
                 <div className="space-y-2 text-sm text-gray-300">
                   <p><strong>사업자등록번호:</strong> 101-28-66901</p>
                   <p><strong>통신판매업:</strong> 제2025-울산남구-0646호</p>
