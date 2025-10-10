@@ -174,9 +174,9 @@ export default function SettlementManagement() {
     }
   }
 
-  // 감정 완료된 신청 중 아직 정산되지 않은 것들
+  // 감정 완료 및 승인된 신청 중 아직 정산되지 않은 것들
   const availableRequests = requests.filter(req =>
-    req.status === 'evaluated' &&
+    ['evaluated', 'approved', 'confirmed', 'paid', 'deposited'].includes(req.status) &&
     !settlements.some(settlement => settlement.request_id === req.id)
   )
 
