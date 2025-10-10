@@ -106,7 +106,7 @@ export default function GoldPriceDisplay() {
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900 text-lg md:text-base">{label}</div>
-                    <div className="text-base md:text-sm text-gray-500">1개당 매입가</div>
+                    <div className="text-base md:text-sm text-gray-500">1g당 매입가</div>
                   </div>
                 </div>
                 <div className="text-right">
@@ -121,10 +121,9 @@ export default function GoldPriceDisplay() {
         })}
       </div>
 
-      <div className="mt-4 pt-4 border-t border-yellow-300">
-        <p className="text-sm md:text-xs text-yellow-700 text-center leading-relaxed">
-          💡 <strong>최고가 보장:</strong> 타사 대비 최고가 매입을 약속드립니다<br/>
-          * 왕관 및 정제 수수료 등의 별도 변동
+      <div className="mt-4 pt-4 border-t border-blue-300">
+        <p className="text-sm md:text-xs text-blue-700 text-center leading-relaxed">
+          💡 함유량이 제일 높은 기준으로 실제 금액은 변동될 수 있습니다
         </p>
       </div>
     </div>
