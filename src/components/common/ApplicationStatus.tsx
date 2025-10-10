@@ -8,6 +8,7 @@ interface RecentPurchase {
   id: string
   customer_name: string
   amount: number
+  status: string
   created_at: string
 }
 
@@ -19,13 +20,28 @@ export default function ApplicationStatus() {
     fetchRecentPurchases()
   }, [])
 
+  // 상태별 라벨 및 색상 반환
+  const getStatusInfo = (status: string) => {
+    const statusMap: Record<string, { label: string; color: string }> = {
+      pending: { label: '신청완료', color: 'text-yellow-600' },
+      shipped: { label: '발송완료', color: 'text-blue-600' },
+      received: { label: '입고완료', color: 'text-blue-600' },
+      evaluating: { label: '감정중', color: 'text-orange-600' },
+      evaluated: { label: '감정완료', color: 'text-purple-600' },
+      approved: { label: '승인완료', color: 'text-green-600' },
+      confirmed: { label: '확인완료', color: 'text-green-600' },
+      paid: { label: '정산완료', color: 'text-green-600' },
+      deposited: { label: '입금완료', color: 'text-green-600' }
+    }
+    return statusMap[status] || { label: '처리중', color: 'text-gray-600' }
+  }
+
   const fetchRecentPurchases = async () => {
     try {
-      // 최근 정산 완료된 매입 건 조회 (개인정보 보호를 위해 최소 정보만)
+      // 실시간 매입 신청 현황 조회 (모든 상태 포함)
       const { data, error } = await supabase
         .from('purchase_requests')
-        .select('id, customer_name, total_amount, created_at')
-        .in('status', ['deposited', 'confirmed'])
+        .select('id, customer_name, total_amount, status, created_at')
         .order('created_at', { ascending: false })
         .limit(5)
 
@@ -36,6 +52,7 @@ export default function ApplicationStatus() {
           id: item.id,
           customer_name: item.customer_name || '고객',
           amount: item.total_amount || 0,
+          status: item.status,
           created_at: item.created_at
         })))
       }
@@ -76,38 +93,41 @@ export default function ApplicationStatus() {
       {/* 최근 매입 내역 */}
       <div className="space-y-3">
         {recentPurchases.length > 0 ? (
-          recentPurchases.map((purchase) => (
-            <div key={purchase.id} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-all">
-              <div className="flex justify-between items-center">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                    <span className="text-blue-600 font-bold text-sm">
-                      {maskName(purchase.customer_name)[0]}
-                    </span>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900 text-sm">
-                      {maskName(purchase.customer_name)}
+          recentPurchases.map((purchase) => {
+            const statusInfo = getStatusInfo(purchase.status)
+            return (
+              <div key={purchase.id} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-all">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                      <span className="text-blue-600 font-bold text-sm">
+                        {maskName(purchase.customer_name)[0]}
+                      </span>
                     </div>
-                    <div className="text-xs text-gray-500">
-                      {new Date(purchase.created_at).toLocaleDateString('ko-KR', {
-                        month: 'short',
-                        day: 'numeric'
-                      })}
+                    <div>
+                      <div className="font-semibold text-gray-900 text-sm">
+                        {maskName(purchase.customer_name)}
+                      </div>
+                      <div className="text-xs text-gray-500">
+                        {new Date(purchase.created_at).toLocaleDateString('ko-KR', {
+                          month: 'short',
+                          day: 'numeric'
+                        })}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="text-right">
-                  <div className="font-bold text-blue-600">
-                    {formatCurrency(purchase.amount)}
-                  </div>
-                  <div className="text-xs text-green-600 font-medium">
-                    ✓ 입금완료
+                  <div className="text-right">
+                    <div className="font-bold text-blue-600">
+                      {formatCurrency(purchase.amount)}
+                    </div>
+                    <div className={`text-xs ${statusInfo.color} font-medium`}>
+                      ✓ {statusInfo.label}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))
+            )
+          })
         ) : (
           <div className="bg-white rounded-lg shadow-sm p-8 text-center">
             <span className="text-4xl mb-2 block">📊</span>
