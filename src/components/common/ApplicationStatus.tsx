@@ -49,7 +49,7 @@ export default function ApplicationStatus() {
       // 실시간 매입 신청 현황 조회 (모든 상태 포함)
       const { data, error } = await supabase
         .from('purchase_requests')
-        .select('id, customer_name, total_amount, status, created_at')
+        .select('id, customer_name, estimated_price, final_price, status, created_at')
         .order('created_at', { ascending: false })
         .limit(5)
 
@@ -59,7 +59,7 @@ export default function ApplicationStatus() {
         setRecentPurchases(data.map(item => ({
           id: item.id,
           customer_name: item.customer_name || '고객',
-          amount: item.total_amount || 0,
+          amount: item.final_price || item.estimated_price || 0,
           status: item.status,
           created_at: item.created_at
         })))
