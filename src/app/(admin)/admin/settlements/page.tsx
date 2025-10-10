@@ -141,9 +141,37 @@ export default function SettlementManagement() {
     try {
       setCreating(true)
 
-      // 임시로 비활성화 - 실제 배포시 Settlement 타입 정의 수정 필요
-      console.log('Settlement 생성 기능 비활성화:', newSettlement)
-      alert('Settlement 생성 기능은 준비 중입니다.')
+      // 선택된 신청 정보 가져오기
+      const selectedRequest = requests.find(r => r.id === newSettlement.request_id)
+      if (!selectedRequest) {
+        alert('선택한 신청을 찾을 수 없습니다.')
+        return
+      }
+
+      // 정산 번호 생성
+      const today = new Date()
+      const dateString = today.getFullYear().toString() +
+        String(today.getMonth() + 1).padStart(2, '0') +
+        String(today.getDate()).padStart(2, '0')
+      const settlementNumber = `S${dateString}${String(Math.floor(Math.random() * 1000)).padStart(3, '0')}`
+
+      // 정산 데이터 생성
+      const finalAmount = parseInt(newSettlement.final_price)
+      const settlementData = {
+        request_id: newSettlement.request_id,
+        settlement_number: settlementNumber,
+        user_id: selectedRequest.user_id,
+        final_amount: finalAmount,
+        deduction_amount: 0,
+        net_amount: finalAmount,
+        bank_name: selectedRequest.bank_name || '',
+        account_number: newSettlement.account_number || selectedRequest.account_number || '',
+        account_holder: selectedRequest.customer_name,
+        payment_method: 'bank_transfer' as const,
+        payment_status: newSettlement.payment_status
+      }
+
+      await createSettlement(settlementData)
 
       alert('정산이 생성되었습니다.')
       setShowCreateModal(false)
