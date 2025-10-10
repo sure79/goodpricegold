@@ -17,7 +17,15 @@ export default function ApplicationStatus() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    // 초기 로드
     fetchRecentPurchases()
+
+    // 30초마다 자동 새로고침
+    const interval = setInterval(() => {
+      fetchRecentPurchases()
+    }, 30000) // 30초
+
+    return () => clearInterval(interval)
   }, [])
 
   // 상태별 라벨 및 색상 반환
