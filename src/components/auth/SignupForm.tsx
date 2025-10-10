@@ -10,7 +10,6 @@ import LoadingSpinner from '@/components/common/LoadingSpinner'
 interface SignupFormData {
   name: string
   phone: string
-  email: string
   password: string
   confirmPassword: string
   agreeTerms: boolean
@@ -52,7 +51,10 @@ export default function SignupForm() {
         return
       }
 
-      const { name, phone, email, password, agreeMarketing } = data
+      const { name, phone, password, agreeMarketing } = data
+
+      // 전화번호를 이메일 형식으로 변환 (Supabase 인증용)
+      const email = `${phone.replace(/-/g, '')}@geumnikkaebi.com`
 
       // Supabase 인증 사용
       const { user, success, session } = await signUp(email, password, {
@@ -126,7 +128,7 @@ export default function SignupForm() {
           <div className="space-y-4">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-900">
-                이름
+                이름 <span className="text-red-500">*</span>
               </label>
               <input
                 {...register('name', { required: '이름을 입력해주세요' })}
@@ -141,7 +143,7 @@ export default function SignupForm() {
 
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-900">
-                휴대폰 번호
+                휴대폰 번호 <span className="text-red-500">*</span>
               </label>
               <input
                 {...register('phone', {
@@ -161,29 +163,8 @@ export default function SignupForm() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-900">
-                이메일
-              </label>
-              <input
-                {...register('email', {
-                  required: '이메일을 입력해주세요',
-                  pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: '올바른 이메일 형식이 아닙니다',
-                  },
-                })}
-                type="email"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                placeholder="이메일을 입력하세요"
-              />
-              {errors.email && (
-                <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
-              )}
-            </div>
-
-            <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-900">
-                비밀번호
+                비밀번호 <span className="text-red-500">*</span>
               </label>
               <input
                 {...register('password', {
@@ -204,7 +185,7 @@ export default function SignupForm() {
 
             <div>
               <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-900">
-                비밀번호 확인
+                비밀번호 확인 <span className="text-red-500">*</span>
               </label>
               <input
                 {...register('confirmPassword', {
@@ -275,7 +256,7 @@ export default function SignupForm() {
                       - 고객 문의 처리 및 AS 서비스<br/><br/>
 
                       <strong>2. 처리하는 개인정보의 항목</strong><br/>
-                      - 필수항목: 성명, 휴대폰번호, 이메일주소<br/>
+                      - 필수항목: 성명, 휴대폰번호<br/>
                       - 선택항목: 주소 (택배 발송시)<br/><br/>
 
                       <strong>3. 개인정보의 처리 및 보유기간</strong><br/>
@@ -300,7 +281,7 @@ export default function SignupForm() {
                       <span className="text-blue-500">[선택]</span> 마케팅 정보 수신에 동의합니다
                     </label>
                     <div className="mt-1 text-xs text-gray-500">
-                      금니 시세 변동 알림, 이벤트 정보, 프로모션 혜택 등을 문자/이메일로 받아보실 수 있습니다. (선택사항)
+                      금니 시세 변동 알림, 이벤트 정보, 프로모션 혜택 등을 문자로 받아보실 수 있습니다. (선택사항)
                     </div>
                   </div>
                 </div>
