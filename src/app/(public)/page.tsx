@@ -28,6 +28,16 @@ export default function HomePage() {
     if (!user) return '/login'
     return user.role === 'admin' ? '/admin' : '/dashboard'
   }
+
+  const handlePhoneCopy = async () => {
+    try {
+      await navigator.clipboard.writeText('010-6622-9774')
+      alert('전화번호가 복사되었습니다!')
+    } catch (err) {
+      console.error('복사 실패:', err)
+      alert('전화번호: 010-6622-9774')
+    }
+  }
   return (
     <div className="min-h-screen bg-black">
       {/* 상단 헤더 */}
@@ -35,51 +45,67 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* 왼쪽: 로고 및 사이트명 */}
-            <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-              <img src="/로고3.png" alt="착한금니 로고" className="h-12 w-auto" />
-              <span className="text-xl font-bold text-yellow-400">착한금니</span>
-            </Link>
+            <div className="flex items-center space-x-4">
+              <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                <img src="/로고3.png" alt="착한금니 로고" className="h-12 w-auto" />
+                <div className="flex flex-col">
+                  <span className="text-xl font-bold text-yellow-400">착한금니</span>
+                  <span className="text-sm text-yellow-300">폐금 금이빨 전문매입업체</span>
+                </div>
+              </Link>
+            </div>
 
-            {/* 오른쪽: 전화번호 및 버튼 */}
-            <div className="flex items-center gap-4">
-              <div className="flex items-center space-x-2 text-yellow-400">
-                <span className="text-xl">📞</span>
-                <span className="font-semibold text-base">010-6622-9774</span>
-              </div>
+            {/* 오른쪽: 버튼들 */}
+            <div className="flex items-center gap-3">
+              <button
+                onClick={handlePhoneCopy}
+                className="bg-yellow-500 text-black px-4 py-2 rounded-lg font-medium hover:bg-yellow-400 transition-colors text-sm flex items-center gap-2"
+              >
+                <span>📞</span>
+                <span>전화문의</span>
+              </button>
 
-              <div className="flex items-center gap-3">
-                {isLoggedIn ? (
-                  <>
-                    <Link
-                      href={getDashboardLink()}
-                      className="bg-yellow-500 text-black px-5 py-2.5 rounded-lg font-medium hover:bg-yellow-400 transition-colors text-sm"
-                    >
-                      {user?.role === 'admin' ? '관리자페이지' : '마이페이지'}
-                    </Link>
-                    <button
-                      onClick={handleLogout}
-                      className="text-yellow-300 hover:text-yellow-100 transition-colors font-medium text-sm"
-                    >
-                      로그아웃
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <Link
-                      href="/login"
-                      className="text-yellow-300 hover:text-yellow-100 transition-colors font-medium text-sm"
-                    >
-                      로그인
-                    </Link>
-                    <Link
-                      href="/signup"
-                      className="bg-yellow-500 text-black px-5 py-2.5 rounded-lg font-medium hover:bg-yellow-400 transition-colors text-sm"
-                    >
-                      회원가입
-                    </Link>
-                  </>
-                )}
-              </div>
+              <a
+                href="http://pf.kakao.com/_Efrpn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-yellow-400 text-black px-4 py-2 rounded-lg font-medium hover:bg-yellow-300 transition-colors text-sm flex items-center gap-2"
+              >
+                <span>💬</span>
+                <span>24시 카톡상담</span>
+              </a>
+
+              {isLoggedIn ? (
+                <>
+                  <Link
+                    href={getDashboardLink()}
+                    className="bg-yellow-500 text-black px-4 py-2 rounded-lg font-medium hover:bg-yellow-400 transition-colors text-sm"
+                  >
+                    마이페이지
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="text-yellow-300 hover:text-yellow-100 transition-colors font-medium text-sm"
+                  >
+                    로그아웃
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    href="/login"
+                    className="text-yellow-300 hover:text-yellow-100 transition-colors font-medium text-sm"
+                  >
+                    로그인
+                  </Link>
+                  <Link
+                    href="/signup"
+                    className="bg-yellow-500 text-black px-4 py-2 rounded-lg font-medium hover:bg-yellow-400 transition-colors text-sm"
+                  >
+                    회원가입
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -151,7 +177,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="w-full">
-            <img src="/금니종류.png" alt="금니 종류 안내" className="w-full h-auto rounded-lg shadow-lg shadow-yellow-500/20 border border-yellow-600/30" />
+            <img src="/금니종류2.png" alt="금니 종류 안내" className="w-full h-auto rounded-lg shadow-lg shadow-yellow-500/20 border border-yellow-600/30" />
           </div>
         </div>
       </div>
