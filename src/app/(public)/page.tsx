@@ -124,7 +124,7 @@ export default function HomePage() {
           </div>
 
           {/* 전화상담 및 카톡상담 */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col md:flex-row gap-4 justify-center">
             <a
               href="tel:010-6622-9774"
               className="bg-green-600 text-white px-8 py-3 md:px-10 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-green-700 transition-all shadow-lg flex items-center justify-center gap-2"
