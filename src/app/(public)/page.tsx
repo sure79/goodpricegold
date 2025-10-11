@@ -44,12 +44,19 @@ export default function HomePage() {
       <header className="bg-black border-b border-yellow-600 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4 md:py-6">
-            {/* 왼쪽: 로고 */}
-            <div className="flex items-center space-x-2 md:space-x-4">
-              <Link href="/" className="hover:opacity-80 transition-opacity flex items-center">
-                <img src="/로고3.png" alt="착한금니 로고" className="h-20 md:h-20 object-contain" />
+            {/* 왼쪽: 로고 + 하단 문구 */}
+            <div className="flex flex-col items-start">
+              <Link href="/" className="hover:opacity-80 transition-opacity">
+                <img src="/로고3.png" alt="착한금니 로고" className="h-16 md:h-20 object-contain" />
               </Link>
-              <span className="text-[10px] md:text-base font-medium text-yellow-300 leading-tight">폐금 금이빨<br className="md:hidden" />전문매입업체</span>
+              <span className="text-[10px] md:text-sm font-medium text-yellow-300 mt-1">폐금 금이빨 전문매입업체</span>
+            </div>
+
+            {/* 중간: 새로운 텍스트 */}
+            <div className="hidden lg:block text-center px-4">
+              <p className="text-sm md:text-base font-medium text-yellow-300 leading-relaxed">
+                온라인 택배로 간편하게,<br />정직한 검수로 믿음을 전합니다.
+              </p>
             </div>
 
             {/* 오른쪽: 버튼들 */}
