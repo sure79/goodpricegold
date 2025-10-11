@@ -43,47 +43,57 @@ export default function HomePage() {
       {/* 상단 헤더 */}
       <header className="bg-black border-b border-yellow-600 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4 md:py-6">
-            {/* 왼쪽: 로고 + 하단 문구 */}
-            <div className="flex flex-col items-start">
-              <Link href="/" className="hover:opacity-80 transition-opacity">
-                <img src="/로고3.png" alt="착한금니 로고" className="h-16 md:h-20 object-contain" />
-              </Link>
-              <span className="text-[10px] md:text-sm font-medium text-yellow-300 mt-1">폐금 금이빨 전문매입업체</span>
-            </div>
+          <div className="py-4 md:py-6">
+            {/* 첫 번째 줄: 로고 + 중간 텍스트(lg에서만) + 버튼 */}
+            <div className="flex justify-between items-center">
+              {/* 왼쪽: 로고 + 하단 문구 */}
+              <div className="flex flex-col items-start">
+                <Link href="/" className="hover:opacity-80 transition-opacity">
+                  <img src="/로고3.png" alt="착한금니 로고" className="h-16 md:h-20 object-contain" />
+                </Link>
+                <span className="text-[10px] md:text-sm font-medium text-yellow-300 mt-1">폐금 금이빨 전문매입업체</span>
+              </div>
 
-            {/* 중간: 새로운 텍스트 */}
-            <div className="hidden lg:block text-center px-4">
-              <p className="text-sm md:text-base font-medium text-yellow-300 leading-relaxed">
-                온라인 택배로 간편하게,<br />정직한 검수로 믿음을 전합니다.
-              </p>
-            </div>
+              {/* 중간: 새로운 텍스트 (lg 이상에서만 표시) */}
+              <div className="hidden lg:block text-center px-4">
+                <p className="text-sm md:text-base font-medium text-yellow-300 leading-relaxed">
+                  온라인 택배로 간편하게,<br />정직한 검수로 믿음을 전합니다.
+                </p>
+              </div>
 
-            {/* 오른쪽: 버튼들 */}
-            <div className="flex items-center gap-2 md:gap-3">
-              {isLoggedIn ? (
-                <button
-                  onClick={handleLogout}
-                  className="text-yellow-300 hover:text-yellow-100 transition-colors font-medium text-xs md:text-sm px-3 md:px-4 py-2 whitespace-nowrap"
-                >
-                  로그아웃
-                </button>
-              ) : (
-                <>
-                  <Link
-                    href="/login"
+              {/* 오른쪽: 버튼들 */}
+              <div className="flex items-center gap-2 md:gap-3">
+                {isLoggedIn ? (
+                  <button
+                    onClick={handleLogout}
                     className="text-yellow-300 hover:text-yellow-100 transition-colors font-medium text-xs md:text-sm px-3 md:px-4 py-2 whitespace-nowrap"
                   >
-                    로그인
-                  </Link>
-                  <Link
-                    href="/signup"
-                    className="bg-yellow-500 text-black px-3 py-2 md:px-4 md:py-2 rounded-lg font-medium hover:bg-yellow-400 transition-colors text-xs md:text-sm whitespace-nowrap"
-                  >
-                    회원가입
-                  </Link>
-                </>
-              )}
+                    로그아웃
+                  </button>
+                ) : (
+                  <>
+                    <Link
+                      href="/login"
+                      className="text-yellow-300 hover:text-yellow-100 transition-colors font-medium text-xs md:text-sm px-3 md:px-4 py-2 whitespace-nowrap"
+                    >
+                      로그인
+                    </Link>
+                    <Link
+                      href="/signup"
+                      className="bg-yellow-500 text-black px-3 py-2 md:px-4 md:py-2 rounded-lg font-medium hover:bg-yellow-400 transition-colors text-xs md:text-sm whitespace-nowrap"
+                    >
+                      회원가입
+                    </Link>
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* 두 번째 줄: 모바일/태블릿용 중간 텍스트 (lg 미만에서만 표시) */}
+            <div className="lg:hidden text-center mt-3 pt-3 border-t border-yellow-600/30">
+              <p className="text-xs md:text-sm font-medium text-yellow-300 leading-relaxed">
+                온라인 택배로 간편하게, 정직한 검수로 믿음을 전합니다.
+              </p>
             </div>
           </div>
         </div>
