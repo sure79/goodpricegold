@@ -53,51 +53,25 @@ export default function HomePage() {
             </div>
 
             {/* 오른쪽: 버튼들 */}
-            <div className="flex items-center gap-1 md:gap-3">
-              <button
-                onClick={handlePhoneCopy}
-                className="bg-yellow-500 text-black px-2 py-1.5 md:px-4 md:py-2 rounded-md md:rounded-lg font-medium hover:bg-yellow-400 transition-colors text-[10px] md:text-sm flex items-center gap-0.5 md:gap-2 whitespace-nowrap"
-              >
-                <span className="text-xs md:text-base">📞</span>
-                <span className="hidden sm:inline">전화문의</span>
-              </button>
-
-              <a
-                href="http://pf.kakao.com/_Efrpn"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-yellow-400 text-black px-2 py-1.5 md:px-4 md:py-2 rounded-md md:rounded-lg font-medium hover:bg-yellow-300 transition-colors text-[10px] md:text-sm flex items-center gap-0.5 md:gap-2 whitespace-nowrap"
-              >
-                <span className="text-xs md:text-base">💬</span>
-                <span className="hidden sm:inline">카톡상담</span>
-              </a>
-
+            <div className="flex items-center gap-2 md:gap-3">
               {isLoggedIn ? (
-                <>
-                  <Link
-                    href={getDashboardLink()}
-                    className="bg-yellow-500 text-black px-2 py-1.5 md:px-4 md:py-2 rounded-md md:rounded-lg font-medium hover:bg-yellow-400 transition-colors text-[10px] md:text-sm whitespace-nowrap"
-                  >
-                    마이페이지
-                  </Link>
-                  <button
-                    onClick={handleLogout}
-                    className="text-yellow-300 hover:text-yellow-100 transition-colors font-medium text-[10px] md:text-sm px-1.5 md:px-3 py-1.5 md:py-2 whitespace-nowrap"
-                  >
-                    로그아웃
-                  </button>
-                </>
+                <button
+                  onClick={handleLogout}
+                  className="text-yellow-300 hover:text-yellow-100 transition-colors font-medium text-xs md:text-sm px-3 md:px-4 py-2 whitespace-nowrap"
+                >
+                  로그아웃
+                </button>
               ) : (
                 <>
                   <Link
                     href="/login"
-                    className="text-yellow-300 hover:text-yellow-100 transition-colors font-medium text-[10px] md:text-sm px-1.5 md:px-3 py-1.5 md:py-2 whitespace-nowrap"
+                    className="text-yellow-300 hover:text-yellow-100 transition-colors font-medium text-xs md:text-sm px-3 md:px-4 py-2 whitespace-nowrap"
                   >
                     로그인
                   </Link>
                   <Link
                     href="/signup"
-                    className="bg-yellow-500 text-black px-2 py-1.5 md:px-4 md:py-2 rounded-md md:rounded-lg font-medium hover:bg-yellow-400 transition-colors text-[10px] md:text-sm whitespace-nowrap"
+                    className="bg-yellow-500 text-black px-3 py-2 md:px-4 md:py-2 rounded-lg font-medium hover:bg-yellow-400 transition-colors text-xs md:text-sm whitespace-nowrap"
                   >
                     회원가입
                   </Link>
@@ -111,6 +85,66 @@ export default function HomePage() {
       {/* 메인 이미지 슬라이더 */}
       <ImageSlider />
 
+      {/* CTA 버튼 섹션 */}
+      <div className="py-8 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* 매입 신청 및 마이페이지 */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
+            {isLoggedIn ? (
+              <>
+                <Link
+                  href="/apply"
+                  className="bg-yellow-500 text-black px-8 py-3 md:px-10 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-yellow-400 transition-all shadow-lg shadow-yellow-500/50 text-center"
+                >
+                  매입 신청
+                </Link>
+                <Link
+                  href={getDashboardLink()}
+                  className="bg-black text-yellow-400 px-8 py-3 md:px-10 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-zinc-900 transition-all border-2 border-yellow-500 text-center"
+                >
+                  {user?.role === 'admin' ? '관리자페이지' : '마이페이지'}
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  href="/signup"
+                  className="bg-yellow-500 text-black px-8 py-3 md:px-10 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-yellow-400 transition-all shadow-lg shadow-yellow-500/50 text-center"
+                >
+                  매입 신청
+                </Link>
+                <Link
+                  href="/login"
+                  className="bg-black text-yellow-400 px-8 py-3 md:px-10 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-zinc-900 transition-all border-2 border-yellow-500 text-center"
+                >
+                  로그인
+                </Link>
+              </>
+            )}
+          </div>
+
+          {/* 전화상담 및 카톡상담 */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:010-6622-9774"
+              className="bg-green-600 text-white px-8 py-3 md:px-10 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-green-700 transition-all shadow-lg flex items-center justify-center gap-2"
+            >
+              <span>📞</span>
+              <span>전화상담 010-6622-9774</span>
+            </a>
+            <a
+              href="http://pf.kakao.com/_Efrpn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-yellow-400 text-black px-8 py-3 md:px-10 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-yellow-300 transition-all shadow-lg flex items-center justify-center gap-2"
+            >
+              <span>💬</span>
+              <span>카톡상담</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* 소개 문구 */}
       <div className="bg-gradient-to-b from-zinc-900 to-black py-8 border-b border-yellow-600/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -120,45 +154,6 @@ export default function HomePage() {
           <p className="text-base md:text-lg text-yellow-200">
             15년 전통 • 정확한 감정 • 당일 입금 • 최고가 보장
           </p>
-        </div>
-      </div>
-
-      {/* CTA 버튼 섹션 */}
-      <div className="py-12 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            {isLoggedIn ? (
-              <>
-                <Link
-                  href="/apply"
-                  className="bg-yellow-500 text-black px-10 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-400 transition-all shadow-lg shadow-yellow-500/50"
-                >
-                  지금 바로 매입 신청
-                </Link>
-                <Link
-                  href={getDashboardLink()}
-                  className="bg-black text-yellow-400 px-10 py-4 rounded-lg text-lg font-semibold hover:bg-zinc-900 transition-all border-2 border-yellow-500"
-                >
-                  {user?.role === 'admin' ? '관리자페이지' : '마이페이지'}
-                </Link>
-              </>
-            ) : (
-              <>
-                <Link
-                  href="/signup"
-                  className="bg-yellow-500 text-black px-10 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-400 transition-all shadow-lg shadow-yellow-500/50"
-                >
-                  지금 바로 매입 신청
-                </Link>
-                <Link
-                  href="/login"
-                  className="bg-black text-yellow-400 px-10 py-4 rounded-lg text-lg font-semibold hover:bg-zinc-900 transition-all border-2 border-yellow-500"
-                >
-                  로그인
-                </Link>
-              </>
-            )}
-          </div>
         </div>
       </div>
 
