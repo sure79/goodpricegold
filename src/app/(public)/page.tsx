@@ -44,15 +44,12 @@ export default function HomePage() {
       <header className="bg-black border-b border-yellow-600 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-3 md:py-4">
-            {/* 왼쪽: 로고 및 사이트명 */}
-            <div className="flex items-center space-x-2 md:space-x-4">
-              <Link href="/" className="flex items-center space-x-2 md:space-x-3 hover:opacity-80 transition-opacity">
-                <img src="/로고3.png" alt="착한금니 로고" className="h-14 md:h-16 w-auto" />
-                <div className="flex flex-col">
-                  <span className="text-lg md:text-xl font-bold text-yellow-400">착한금니</span>
-                  <span className="text-xs md:text-sm text-yellow-300">폐금 금이빨 전문매입업체</span>
-                </div>
+            {/* 왼쪽: 로고 */}
+            <div className="flex items-center space-x-3 md:space-x-4">
+              <Link href="/" className="hover:opacity-80 transition-opacity">
+                <img src="/로고3.png" alt="착한금니 로고" className="h-20 md:h-24 w-auto" />
               </Link>
+              <span className="text-sm md:text-base font-medium text-yellow-300">폐금 금이빨 전문매입업체</span>
             </div>
 
             {/* 오른쪽: 버튼들 */}
