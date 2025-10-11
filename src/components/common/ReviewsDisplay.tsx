@@ -70,14 +70,14 @@ export default function ReviewsDisplay() {
 
   if (loading) {
     return (
-      <div className="bg-white rounded-lg shadow-md p-6">
+      <div className="bg-zinc-900 rounded-lg shadow-md p-6 border border-yellow-600/30">
         <div className="animate-pulse">
-          <div className="h-6 bg-gray-200 rounded mb-4"></div>
+          <div className="h-6 bg-zinc-800 rounded mb-4"></div>
           <div className="space-y-4">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="border border-gray-100 rounded-lg p-4">
-                <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                <div className="h-3 bg-gray-200 rounded w-3/4"></div>
+              <div key={i} className="border border-yellow-600/20 rounded-lg p-4">
+                <div className="h-4 bg-zinc-800 rounded mb-2"></div>
+                <div className="h-3 bg-zinc-800 rounded w-3/4"></div>
               </div>
             ))}
           </div>
@@ -87,13 +87,13 @@ export default function ReviewsDisplay() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl shadow-lg border border-purple-200 p-6">
+    <div className="bg-gradient-to-br from-zinc-900 to-black rounded-xl shadow-lg border border-yellow-600/30 p-6">
       <div className="text-center mb-6">
-        <div className="inline-flex items-center bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-2">
+        <div className="inline-flex items-center bg-yellow-500 text-black px-4 py-2 rounded-full text-sm font-semibold mb-2">
           <span className="mr-2">⭐</span>
           고객 후기
         </div>
-        <div className="text-purple-700 text-sm font-medium">
+        <div className="text-yellow-300 text-sm font-medium">
           실제 이용고객 후기
         </div>
       </div>
@@ -101,17 +101,17 @@ export default function ReviewsDisplay() {
       <div className="space-y-3">
         {reviews.length > 0 ? (
           reviews.map((review) => (
-            <div key={review.id} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-all">
+            <div key={review.id} className="bg-black rounded-lg shadow-sm p-4 hover:shadow-lg hover:shadow-yellow-500/20 transition-all border border-yellow-600/20">
               <div className="flex items-start justify-between mb-2">
                 <div className="flex items-center space-x-2">
                   <div className="flex text-sm">
                     {renderStars(review.rating)}
                   </div>
-                  <span className="text-sm font-semibold text-gray-900">
+                  <span className="text-sm font-semibold text-yellow-400">
                     {review.user_name || '익명'}
                   </span>
                 </div>
-                <div className="text-xs text-gray-500">
+                <div className="text-xs text-yellow-200">
                   {new Date(review.created_at).toLocaleDateString('ko-KR', {
                     month: 'short',
                     day: 'numeric'
@@ -119,24 +119,24 @@ export default function ReviewsDisplay() {
                 </div>
               </div>
 
-              <p className="text-gray-700 text-sm leading-relaxed line-clamp-2">
+              <p className="text-yellow-200 text-sm leading-relaxed line-clamp-2">
                 {review.content}
               </p>
             </div>
           ))
         ) : (
-          <div className="bg-white rounded-lg shadow-sm p-8 text-center">
+          <div className="bg-black rounded-lg shadow-sm p-8 text-center border border-yellow-600/30">
             <span className="text-4xl mb-2 block">💬</span>
-            <p className="text-gray-500 text-sm">후기 준비 중...</p>
+            <p className="text-yellow-200 text-sm">후기 준비 중...</p>
           </div>
         )}
       </div>
 
       {reviews.length > 0 && (
-        <div className="mt-6 pt-4 border-t border-purple-300 text-center">
+        <div className="mt-6 pt-4 border-t border-yellow-600/30 text-center">
           <Link
             href="/testimonials"
-            className="inline-flex items-center text-purple-600 px-4 py-2 rounded-lg font-medium hover:bg-purple-50 transition-colors text-sm"
+            className="inline-flex items-center text-yellow-400 px-4 py-2 rounded-lg font-medium hover:bg-zinc-800 transition-colors text-sm"
           >
             전체 후기 보기
             <span className="ml-2">→</span>

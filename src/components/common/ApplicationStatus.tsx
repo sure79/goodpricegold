@@ -74,12 +74,12 @@ export default function ApplicationStatus() {
 
   if (loading) {
     return (
-      <div className="bg-white rounded-lg shadow-md p-6">
+      <div className="bg-zinc-900 rounded-lg shadow-md p-6 border border-yellow-600/30">
         <div className="animate-pulse">
-          <div className="h-6 bg-gray-200 rounded mb-4"></div>
+          <div className="h-6 bg-zinc-800 rounded mb-4"></div>
           <div className="space-y-3">
-            <div className="h-4 bg-gray-200 rounded"></div>
-            <div className="h-4 bg-gray-200 rounded w-4/5"></div>
+            <div className="h-4 bg-zinc-800 rounded"></div>
+            <div className="h-4 bg-zinc-800 rounded w-4/5"></div>
           </div>
         </div>
       </div>
@@ -87,13 +87,13 @@ export default function ApplicationStatus() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-lg border border-blue-200 p-6">
+    <div className="bg-gradient-to-br from-zinc-900 to-black rounded-xl shadow-lg border border-yellow-600/30 p-6">
       <div className="text-center mb-6">
-        <div className="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-2">
+        <div className="inline-flex items-center bg-yellow-500 text-black px-4 py-2 rounded-full text-sm font-semibold mb-2">
           <span className="mr-2">💰</span>
           최근 매입 현황
         </div>
-        <div className="text-blue-700 text-sm font-medium">
+        <div className="text-yellow-300 text-sm font-medium">
           실시간 업데이트
         </div>
       </div>
@@ -104,19 +104,19 @@ export default function ApplicationStatus() {
           recentPurchases.map((purchase) => {
             const statusInfo = getStatusInfo(purchase.status)
             return (
-              <div key={purchase.id} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-all">
+              <div key={purchase.id} className="bg-black rounded-lg shadow-sm p-4 hover:shadow-lg hover:shadow-yellow-500/20 transition-all border border-yellow-600/20">
                 <div className="flex justify-between items-center">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                      <span className="text-blue-600 font-bold text-sm">
+                    <div className="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center">
+                      <span className="text-black font-bold text-sm">
                         {maskName(purchase.customer_name)[0]}
                       </span>
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900 text-sm">
+                      <div className="font-semibold text-yellow-400 text-sm">
                         {maskName(purchase.customer_name)}
                       </div>
-                      <div className="text-xs text-gray-500">
+                      <div className="text-xs text-yellow-200">
                         {new Date(purchase.created_at).toLocaleDateString('ko-KR', {
                           month: 'short',
                           day: 'numeric'
@@ -125,7 +125,7 @@ export default function ApplicationStatus() {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="font-bold text-blue-600">
+                    <div className="font-bold text-yellow-400">
                       {formatCurrency(purchase.amount)}
                     </div>
                     <div className={`text-xs ${statusInfo.color} font-medium`}>
@@ -137,15 +137,15 @@ export default function ApplicationStatus() {
             )
           })
         ) : (
-          <div className="bg-white rounded-lg shadow-sm p-8 text-center">
+          <div className="bg-black rounded-lg shadow-sm p-8 text-center border border-yellow-600/30">
             <span className="text-4xl mb-2 block">📊</span>
-            <p className="text-gray-500 text-sm">최근 매입 현황 준비 중...</p>
+            <p className="text-yellow-200 text-sm">최근 매입 현황 준비 중...</p>
           </div>
         )}
       </div>
 
-      <div className="mt-6 pt-4 border-t border-blue-300">
-        <div className="flex items-center justify-center text-blue-700 text-xs">
+      <div className="mt-6 pt-4 border-t border-yellow-600/30">
+        <div className="flex items-center justify-center text-yellow-300 text-xs">
           <span className="mr-1">⚡</span>
           평균 처리시간: <strong className="ml-1">2-3시간</strong>
         </div>
