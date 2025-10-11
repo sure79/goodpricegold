@@ -34,18 +34,18 @@ export default function ImageSlider() {
   }
 
   return (
-    <div className="relative w-full overflow-hidden bg-gray-900">
+    <div className="relative w-full overflow-hidden bg-gray-900 max-h-[400px] md:max-h-[500px]">
       {/* 슬라이드 이미지 */}
       <div
-        className="flex transition-transform duration-700 ease-in-out"
+        className="flex transition-transform duration-700 ease-in-out h-full"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((image, index) => (
-          <div key={index} className="min-w-full">
+          <div key={index} className="min-w-full h-full">
             <img
               src={image}
               alt={`슬라이드 ${index + 1}`}
-              className="w-full h-auto"
+              className="w-full h-full object-cover"
             />
           </div>
         ))}

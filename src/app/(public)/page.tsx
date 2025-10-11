@@ -43,11 +43,11 @@ export default function HomePage() {
       {/* 상단 헤더 */}
       <header className="bg-black border-b border-yellow-600 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-3 md:py-4">
+          <div className="flex justify-between items-center py-5 md:py-6">
             {/* 왼쪽: 로고 */}
             <div className="flex items-center space-x-3 md:space-x-4">
-              <Link href="/" className="hover:opacity-80 transition-opacity">
-                <img src="/로고3.png" alt="착한금니 로고" className="h-20 md:h-24 w-auto" />
+              <Link href="/" className="hover:opacity-80 transition-opacity flex items-center">
+                <img src="/로고3.png" alt="착한금니 로고" className="h-16 md:h-20 object-contain" />
               </Link>
               <span className="text-sm md:text-base font-medium text-yellow-300">폐금 금이빨 전문매입업체</span>
             </div>
