@@ -43,49 +43,49 @@ export default function HomePage() {
       {/* 상단 헤더 */}
       <header className="bg-black border-b border-yellow-600 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
+          <div className="flex justify-between items-center py-3 md:py-4">
             {/* 왼쪽: 로고 및 사이트명 */}
-            <div className="flex items-center space-x-4">
-              <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-                <img src="/로고3.png" alt="착한금니 로고" className="h-12 w-auto" />
+            <div className="flex items-center space-x-2 md:space-x-4">
+              <Link href="/" className="flex items-center space-x-2 md:space-x-3 hover:opacity-80 transition-opacity">
+                <img src="/로고3.png" alt="착한금니 로고" className="h-14 md:h-16 w-auto" />
                 <div className="flex flex-col">
-                  <span className="text-xl font-bold text-yellow-400">착한금니</span>
-                  <span className="text-sm text-yellow-300">폐금 금이빨 전문매입업체</span>
+                  <span className="text-lg md:text-xl font-bold text-yellow-400">착한금니</span>
+                  <span className="text-xs md:text-sm text-yellow-300">폐금 금이빨 전문매입업체</span>
                 </div>
               </Link>
             </div>
 
             {/* 오른쪽: 버튼들 */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 md:gap-3">
               <button
                 onClick={handlePhoneCopy}
-                className="bg-yellow-500 text-black px-4 py-2 rounded-lg font-medium hover:bg-yellow-400 transition-colors text-sm flex items-center gap-2"
+                className="bg-yellow-500 text-black px-3 py-2 md:px-4 md:py-2 rounded-lg font-medium hover:bg-yellow-400 transition-colors text-xs md:text-sm flex items-center gap-1 md:gap-2 whitespace-nowrap"
               >
-                <span>📞</span>
-                <span>전화문의</span>
+                <span className="text-sm md:text-base">📞</span>
+                <span className="hidden sm:inline">전화문의</span>
               </button>
 
               <a
                 href="http://pf.kakao.com/_Efrpn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-yellow-400 text-black px-4 py-2 rounded-lg font-medium hover:bg-yellow-300 transition-colors text-sm flex items-center gap-2"
+                className="bg-yellow-400 text-black px-3 py-2 md:px-4 md:py-2 rounded-lg font-medium hover:bg-yellow-300 transition-colors text-xs md:text-sm flex items-center gap-1 md:gap-2 whitespace-nowrap"
               >
-                <span>💬</span>
-                <span>24시 카톡상담</span>
+                <span className="text-sm md:text-base">💬</span>
+                <span className="hidden sm:inline">카톡상담</span>
               </a>
 
               {isLoggedIn ? (
                 <>
                   <Link
                     href={getDashboardLink()}
-                    className="bg-yellow-500 text-black px-4 py-2 rounded-lg font-medium hover:bg-yellow-400 transition-colors text-sm"
+                    className="bg-yellow-500 text-black px-3 py-2 md:px-4 md:py-2 rounded-lg font-medium hover:bg-yellow-400 transition-colors text-xs md:text-sm whitespace-nowrap"
                   >
                     마이페이지
                   </Link>
                   <button
                     onClick={handleLogout}
-                    className="text-yellow-300 hover:text-yellow-100 transition-colors font-medium text-sm"
+                    className="text-yellow-300 hover:text-yellow-100 transition-colors font-medium text-xs md:text-sm px-2 md:px-3 py-2 whitespace-nowrap"
                   >
                     로그아웃
                   </button>
@@ -94,13 +94,13 @@ export default function HomePage() {
                 <>
                   <Link
                     href="/login"
-                    className="text-yellow-300 hover:text-yellow-100 transition-colors font-medium text-sm"
+                    className="text-yellow-300 hover:text-yellow-100 transition-colors font-medium text-xs md:text-sm px-2 md:px-3 py-2 whitespace-nowrap"
                   >
                     로그인
                   </Link>
                   <Link
                     href="/signup"
-                    className="bg-yellow-500 text-black px-4 py-2 rounded-lg font-medium hover:bg-yellow-400 transition-colors text-sm"
+                    className="bg-yellow-500 text-black px-3 py-2 md:px-4 md:py-2 rounded-lg font-medium hover:bg-yellow-400 transition-colors text-xs md:text-sm whitespace-nowrap"
                   >
                     회원가입
                   </Link>
