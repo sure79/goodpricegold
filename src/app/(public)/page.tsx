@@ -138,7 +138,7 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="bg-yellow-400 text-black px-8 py-3 md:px-10 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-yellow-300 transition-all shadow-lg flex items-center justify-center gap-2"
             >
-              <span>💬</span>
+              <img src="/카톡로고.png" alt="카카오톡" className="h-5 md:h-6 w-auto" />
               <span>카톡상담</span>
             </a>
           </div>
