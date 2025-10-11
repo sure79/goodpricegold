@@ -89,86 +89,86 @@ export default function CustomerDashboard() {
       </div>
 
       {/* 진행 현황 요약 */}
-      <div className="bg-gradient-to-r from-blue-50 to-yellow-50 border border-blue-200 rounded-lg p-6">
-        <h2 className="text-lg font-semibold text-blue-900 mb-4">📊 현재 진행 현황</h2>
+      <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-lg p-6 shadow-md">
+        <h2 className="text-lg font-semibold text-amber-900 mb-4">📊 현재 진행 현황</h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           <div className="text-center">
-            <div className="text-2xl font-bold text-blue-600">
+            <div className="text-2xl font-bold text-amber-600">
               {allRequests.filter(r => ['received', 'evaluating'].includes(r.status)).length}
             </div>
-            <div className="text-sm text-gray-600">처리 중</div>
+            <div className="text-sm text-amber-700">처리 중</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-green-600">
+            <div className="text-2xl font-bold text-orange-600">
               {allRequests.filter(r => r.status === 'evaluated').length}
             </div>
-            <div className="text-sm text-gray-600">감정 완료</div>
+            <div className="text-sm text-amber-700">감정 완료</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-purple-600">
+            <div className="text-2xl font-bold text-yellow-600">
               {allRequests.filter(r => ['confirmed', 'paid'].includes(r.status)).length}
             </div>
-            <div className="text-sm text-gray-600">정산 중</div>
+            <div className="text-sm text-amber-700">정산 중</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-emerald-600">
+            <div className="text-2xl font-bold text-amber-600">
               {allRequests.filter(r => r.status === 'deposited').length}
             </div>
-            <div className="text-sm text-gray-600">완료</div>
+            <div className="text-sm text-amber-700">완료</div>
           </div>
         </div>
       </div>
 
       {/* 통계 카드 */}
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        <div className="bg-white overflow-hidden shadow rounded-lg">
+        <div className="bg-white overflow-hidden shadow-md rounded-lg border border-amber-100">
           <div className="p-5">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <div className="w-8 h-8 bg-blue-500 rounded-md flex items-center justify-center">
+                <div className="w-8 h-8 bg-amber-500 rounded-md flex items-center justify-center">
                   <span className="text-white font-semibold">📦</span>
                 </div>
               </div>
               <div className="ml-5 w-0 flex-1">
                 <dl>
-                  <dt className="text-sm font-medium text-gray-500 truncate">총 거래 횟수</dt>
-                  <dd className="text-lg font-medium text-gray-900">{totalTransactions}회</dd>
+                  <dt className="text-sm font-medium text-amber-700 truncate">총 거래 횟수</dt>
+                  <dd className="text-lg font-medium text-amber-900">{totalTransactions}회</dd>
                 </dl>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="bg-white overflow-hidden shadow rounded-lg">
+        <div className="bg-white overflow-hidden shadow-md rounded-lg border border-amber-100">
           <div className="p-5">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <div className="w-8 h-8 bg-green-500 rounded-md flex items-center justify-center">
+                <div className="w-8 h-8 bg-orange-500 rounded-md flex items-center justify-center">
                   <span className="text-white font-semibold">💰</span>
                 </div>
               </div>
               <div className="ml-5 w-0 flex-1">
                 <dl>
-                  <dt className="text-sm font-medium text-gray-500 truncate">총 정산 금액</dt>
-                  <dd className="text-lg font-medium text-gray-900">{formatCurrency(totalAmount)}</dd>
+                  <dt className="text-sm font-medium text-amber-700 truncate">총 정산 금액</dt>
+                  <dd className="text-lg font-medium text-amber-900">{formatCurrency(totalAmount)}</dd>
                 </dl>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="bg-white overflow-hidden shadow rounded-lg">
+        <div className="bg-white overflow-hidden shadow-md rounded-lg border border-amber-100">
           <div className="p-5">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <div className="w-8 h-8 bg-blue-500 rounded-md flex items-center justify-center">
+                <div className="w-8 h-8 bg-amber-500 rounded-md flex items-center justify-center">
                   <span className="text-white font-semibold">🔄</span>
                 </div>
               </div>
               <div className="ml-5 w-0 flex-1">
                 <dl>
-                  <dt className="text-sm font-medium text-gray-500 truncate">진행중인 신청</dt>
-                  <dd className="text-lg font-medium text-gray-900">{activeRequests}건</dd>
+                  <dt className="text-sm font-medium text-amber-700 truncate">진행중인 신청</dt>
+                  <dd className="text-lg font-medium text-amber-900">{activeRequests}건</dd>
                 </dl>
               </div>
             </div>
@@ -177,40 +177,40 @@ export default function CustomerDashboard() {
       </div>
 
       {/* 빠른 액션 */}
-      <div className="bg-white shadow rounded-lg">
+      <div className="bg-white shadow-md rounded-lg border border-amber-100">
         <div className="px-4 py-5 sm:p-6">
-          <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">빠른 액션</h3>
+          <h3 className="text-lg leading-6 font-medium text-amber-900 mb-4">빠른 액션</h3>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/apply"
-              className="bg-blue-50 border border-blue-200 rounded-lg p-4 hover:bg-blue-100 transition-colors"
+              className="bg-amber-50 border border-amber-200 rounded-lg p-4 hover:bg-amber-100 transition-colors"
             >
               <div className="text-center">
                 <div className="text-2xl mb-2">📝</div>
-                <h4 className="font-medium text-blue-900">매입 신청</h4>
-                <p className="text-sm text-blue-700">새로운 금니 매입 신청</p>
+                <h4 className="font-medium text-amber-900">매입 신청</h4>
+                <p className="text-sm text-amber-700">새로운 금니 매입 신청</p>
               </div>
             </Link>
 
             <Link
               href="/history"
-              className="bg-blue-50 border border-blue-200 rounded-lg p-4 hover:bg-blue-100 transition-colors"
+              className="bg-orange-50 border border-orange-200 rounded-lg p-4 hover:bg-orange-100 transition-colors"
             >
               <div className="text-center">
                 <div className="text-2xl mb-2">📋</div>
-                <h4 className="font-medium text-blue-900">신청 내역</h4>
-                <p className="text-sm text-blue-700">과거 신청 내역 확인</p>
+                <h4 className="font-medium text-orange-900">신청 내역</h4>
+                <p className="text-sm text-orange-700">과거 신청 내역 확인</p>
               </div>
             </Link>
 
             <Link
               href="/reviews"
-              className="bg-purple-50 border border-purple-200 rounded-lg p-4 hover:bg-purple-100 transition-colors"
+              className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 hover:bg-yellow-100 transition-colors"
             >
               <div className="text-center">
                 <div className="text-2xl mb-2">⭐</div>
-                <h4 className="font-medium text-purple-900">후기 작성</h4>
-                <p className="text-sm text-purple-700">서비스 후기 관리</p>
+                <h4 className="font-medium text-yellow-900">후기 작성</h4>
+                <p className="text-sm text-yellow-700">서비스 후기 관리</p>
               </div>
             </Link>
           </div>
@@ -219,11 +219,11 @@ export default function CustomerDashboard() {
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* 최근 신청 내역 */}
-        <div className="bg-white shadow rounded-lg">
+        <div className="bg-white shadow-md rounded-lg border border-amber-100">
           <div className="px-4 py-5 sm:p-6">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg leading-6 font-medium text-gray-900">최근 신청 내역</h3>
-              <Link href="/history" className="text-blue-600 hover:text-blue-500 text-sm font-medium">
+              <h3 className="text-lg leading-6 font-medium text-amber-900">최근 신청 내역</h3>
+              <Link href="/history" className="text-amber-600 hover:text-amber-500 text-sm font-medium">
                 전체 보기
               </Link>
             </div>

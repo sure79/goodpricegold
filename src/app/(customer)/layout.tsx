@@ -75,7 +75,7 @@ export default function CustomerLayout({
 
   return (
     <ErrorBoundary>
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
         <Header />
         <main className="p-4 lg:p-8 max-w-6xl mx-auto">
           {children}

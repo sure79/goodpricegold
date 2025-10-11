@@ -72,62 +72,62 @@ export default function AdminDashboard() {
       <GoldPriceManagement />
 
       {/* 빠른 액션 */}
-      <div className="bg-white shadow rounded-lg">
+      <div className="bg-white shadow-md rounded-lg border border-amber-100">
         <div className="px-4 py-5 sm:p-6">
-          <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">빠른 액션</h3>
+          <h3 className="text-lg leading-6 font-medium text-amber-900 mb-4">빠른 액션</h3>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <Link
               href="/admin/requests"
-              className="bg-blue-50 border border-blue-200 rounded-lg p-4 hover:bg-blue-100 transition-colors"
+              className="bg-amber-50 border border-amber-200 rounded-lg p-4 hover:bg-amber-100 transition-colors"
             >
               <div className="text-center">
                 <div className="text-2xl mb-2">📋</div>
-                <h4 className="font-medium text-blue-900">신청 관리</h4>
-                <p className="text-sm text-blue-700">매입 신청 처리</p>
+                <h4 className="font-medium text-amber-900">신청 관리</h4>
+                <p className="text-sm text-amber-700">매입 신청 처리</p>
               </div>
             </Link>
 
             <Link
               href="/admin/settlements"
-              className="bg-green-50 border border-green-200 rounded-lg p-4 hover:bg-green-100 transition-colors"
+              className="bg-orange-50 border border-orange-200 rounded-lg p-4 hover:bg-orange-100 transition-colors"
             >
               <div className="text-center">
                 <div className="text-2xl mb-2">💳</div>
-                <h4 className="font-medium text-green-900">정산 처리</h4>
-                <p className="text-sm text-green-700">입금 및 정산 관리</p>
+                <h4 className="font-medium text-orange-900">정산 처리</h4>
+                <p className="text-sm text-orange-700">입금 및 정산 관리</p>
               </div>
             </Link>
 
             <Link
               href="/admin/users"
-              className="bg-purple-50 border border-purple-200 rounded-lg p-4 hover:bg-purple-100 transition-colors"
+              className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 hover:bg-yellow-100 transition-colors"
             >
               <div className="text-center">
                 <div className="text-2xl mb-2">👥</div>
-                <h4 className="font-medium text-purple-900">회원 관리</h4>
-                <p className="text-sm text-purple-700">고객 정보 관리</p>
+                <h4 className="font-medium text-yellow-900">회원 관리</h4>
+                <p className="text-sm text-yellow-700">고객 정보 관리</p>
               </div>
             </Link>
 
             <Link
               href="/admin/inquiries"
-              className="bg-blue-50 border border-blue-200 rounded-lg p-4 hover:bg-blue-100 transition-colors"
+              className="bg-amber-50 border border-amber-200 rounded-lg p-4 hover:bg-amber-100 transition-colors"
             >
               <div className="text-center">
                 <div className="text-2xl mb-2">💬</div>
-                <h4 className="font-medium text-blue-900">문의 관리</h4>
-                <p className="text-sm text-blue-700">고객 문의 및 응답 관리</p>
+                <h4 className="font-medium text-amber-900">문의 관리</h4>
+                <p className="text-sm text-amber-700">고객 문의 및 응답 관리</p>
               </div>
             </Link>
 
             <Link
               href="/admin/settings"
-              className="bg-blue-50 border border-blue-200 rounded-lg p-4 hover:bg-blue-100 transition-colors"
+              className="bg-orange-50 border border-orange-200 rounded-lg p-4 hover:bg-orange-100 transition-colors"
             >
               <div className="text-center">
                 <div className="text-2xl mb-2">⚙️</div>
-                <h4 className="font-medium text-blue-900">설정</h4>
-                <p className="text-sm text-blue-700">시세 및 시스템 설정</p>
+                <h4 className="font-medium text-orange-900">설정</h4>
+                <p className="text-sm text-orange-700">시세 및 시스템 설정</p>
               </div>
             </Link>
           </div>
@@ -136,11 +136,11 @@ export default function AdminDashboard() {
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* 우선 처리 항목 */}
-        <div className="bg-white shadow rounded-lg">
+        <div className="bg-white shadow-md rounded-lg border border-amber-100">
           <div className="px-4 py-5 sm:p-6">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg leading-6 font-medium text-gray-900">우선 처리 항목</h3>
-              <Link href="/admin/requests" className="text-blue-600 hover:text-blue-500 text-sm font-medium">
+              <h3 className="text-lg leading-6 font-medium text-amber-900">우선 처리 항목</h3>
+              <Link href="/admin/requests" className="text-amber-600 hover:text-amber-500 text-sm font-medium">
                 전체 보기
               </Link>
             </div>
@@ -172,11 +172,11 @@ export default function AdminDashboard() {
         </div>
 
         {/* 최근 신청 */}
-        <div className="bg-white shadow rounded-lg">
+        <div className="bg-white shadow-md rounded-lg border border-amber-100">
           <div className="px-4 py-5 sm:p-6">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg leading-6 font-medium text-gray-900">최근 신청</h3>
-              <Link href="/admin/requests" className="text-blue-600 hover:text-blue-500 text-sm font-medium">
+              <h3 className="text-lg leading-6 font-medium text-amber-900">최근 신청</h3>
+              <Link href="/admin/requests" className="text-amber-600 hover:text-amber-500 text-sm font-medium">
                 전체 보기
               </Link>
             </div>
