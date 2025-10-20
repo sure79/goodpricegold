@@ -1,11 +1,11 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { supabase } from '@/lib/supabase/client'
 import LoadingSpinner from '@/components/common/LoadingSpinner'
 
-export default function KakaoCallbackPage() {
+function KakaoCallbackContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [error, setError] = useState<string>('')
@@ -184,5 +184,18 @@ export default function KakaoCallbackPage() {
       <LoadingSpinner size="lg" />
       <p className="mt-4 text-gray-600">카카오 로그인 처리 중...</p>
     </div>
+  )
+}
+
+export default function KakaoCallbackPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+        <LoadingSpinner size="lg" />
+        <p className="mt-4 text-gray-600">카카오 로그인 처리 중...</p>
+      </div>
+    }>
+      <KakaoCallbackContent />
+    </Suspense>
   )
 }
