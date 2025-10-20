@@ -3,6 +3,61 @@
 import { useState, useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 
+// 카카오톡 채널 챗봇 버튼 컴포넌트
+function KakaoChannelButton() {
+  const [isKakaoReady, setIsKakaoReady] = useState(false)
+
+  useEffect(() => {
+    const checkKakao = setInterval(() => {
+      if (typeof window !== 'undefined' && window.Kakao && window.Kakao.isInitialized()) {
+        setIsKakaoReady(true)
+        clearInterval(checkKakao)
+      }
+    }, 100)
+
+    return () => clearInterval(checkKakao)
+  }, [])
+
+  const handleKakaoChat = () => {
+    if (!isKakaoReady || !window.Kakao) {
+      alert('카카오 SDK가 아직 로드되지 않았습니다. 잠시 후 다시 시도해주세요.')
+      return
+    }
+
+    const channelId = process.env.NEXT_PUBLIC_KAKAO_CHANNEL_ID
+    if (!channelId || channelId === '_your_channel_id') {
+      alert('카카오톡 채널이 아직 설정되지 않았습니다. 관리자에게 문의해주세요.')
+      return
+    }
+
+    try {
+      window.Kakao.Channel.chat({
+        channelPublicId: channelId,
+      })
+    } catch (error) {
+      console.error('카카오톡 채널 챗봇 오류:', error)
+    }
+  }
+
+  return (
+    <button
+      onClick={handleKakaoChat}
+      disabled={!isKakaoReady}
+      className="fixed bottom-20 right-6 bg-[#FEE500] text-[#3c1e1e] p-4 rounded-full shadow-lg hover:bg-[#FDD835] transition-all z-50 flex items-center gap-2 disabled:opacity-50"
+      title="카카오톡 채널로 문의하기"
+    >
+      <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M9 0C4.02944 0 0 3.35786 0 7.5C0 10.0837 1.57937 12.3465 4.02206 13.7793L3.15563 17.2441C3.10312 17.4473 3.32062 17.6123 3.50062 17.4948L7.57969 14.7832C8.04969 14.8443 8.52094 14.8755 9 14.8755C13.9706 14.8755 18 11.5176 18 7.36547C18 3.21333 13.9706 0 9 0Z"
+          fill="#3c1e1e"
+        />
+      </svg>
+    </button>
+  )
+}
+
 interface ChatMessage {
   id: string
   type: 'user' | 'bot'
@@ -189,17 +244,22 @@ export default function Chatbot() {
 
   if (!isOpen) {
     return (
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-all z-50"
-      >
-        💬
-      </button>
+      <>
+        <KakaoChannelButton />
+        <button
+          onClick={() => setIsOpen(true)}
+          className="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-all z-50"
+        >
+          💬
+        </button>
+      </>
     )
   }
 
   return (
-    <div className="fixed bottom-6 right-6 w-80 h-96 bg-white rounded-lg shadow-xl border z-50 flex flex-col">
+    <>
+      <KakaoChannelButton />
+      <div className="fixed bottom-6 right-6 w-80 h-96 bg-white rounded-lg shadow-xl border z-50 flex flex-col">
       {/* 헤더 */}
       <div className="bg-blue-600 text-white p-4 rounded-t-lg flex justify-between items-center">
         <div>
@@ -328,5 +388,6 @@ export default function Chatbot() {
         </div>
       </div>
     </div>
+    </>
   )
 }
