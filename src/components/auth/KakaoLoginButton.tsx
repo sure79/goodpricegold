@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react'
 
 interface KakaoLoginButtonProps {
-  onSuccess?: (userInfo: any) => void
-  onError?: (error: any) => void
+  onSuccess?: (userInfo: unknown) => void
+  onError?: (error: unknown) => void
 }
 
 export default function KakaoLoginButton({ onSuccess, onError }: KakaoLoginButtonProps) {

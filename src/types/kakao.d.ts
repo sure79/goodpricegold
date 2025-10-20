@@ -20,7 +20,7 @@ interface KakaoSDK {
     request(settings: {
       url: string;
       success?: (response: KakaoUserInfo) => void;
-      fail?: (error: any) => void;
+      fail?: (error: unknown) => void;
     }): void;
   };
   Channel: {
