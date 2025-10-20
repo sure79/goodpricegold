@@ -2,7 +2,7 @@
 
 ## 📋 Vercel 배포 URL
 
-**프로덕션 URL**: https://geumnikkaebi.vercel.app
+**프로덕션 URL**: https://goodgeumni.vercel.app
 
 ## 🔧 카카오 리다이렉트 URL
 
@@ -16,14 +16,14 @@ https://developers.kakao.com 접속 후:
 **제품 설정 > 카카오 로그인 > Redirect URI**에 추가:
 
 ```
-https://geumnikkaebi.vercel.app/auth/kakao/callback
+https://goodgeumni.vercel.app/auth/kakao/callback
 ```
 
 #### Web 플랫폼 추가
 **앱 설정 > 플랫폼 > Web**에 추가:
 
 ```
-https://geumnikkaebi.vercel.app
+https://goodgeumni.vercel.app
 ```
 
 ## 🚀 자동 배포 확인
@@ -53,7 +53,7 @@ Vercel은 GitHub와 연동되어 있어 자동 배포가 설정되어 있습니�
 ```bash
 # 카카오 API (이미 설정되어 있으면 업데이트)
 NEXT_PUBLIC_KAKAO_APP_KEY=953b0b2f6d0d9323ab7d1daabf22fc07
-NEXT_PUBLIC_KAKAO_REDIRECT_URI=https://geumnikkaebi.vercel.app/auth/kakao/callback
+NEXT_PUBLIC_KAKAO_REDIRECT_URI=https://goodgeumni.vercel.app/auth/kakao/callback
 NEXT_PUBLIC_KAKAO_CHANNEL_ID=_Efrpn
 ```
 
@@ -71,7 +71,7 @@ vercel env add NEXT_PUBLIC_KAKAO_APP_KEY
 
 # 카카오 리다이렉트 URI
 vercel env add NEXT_PUBLIC_KAKAO_REDIRECT_URI
-# 입력: https://geumnikkaebi.vercel.app/auth/kakao/callback
+# 입력: https://goodgeumni.vercel.app/auth/kakao/callback
 # Environment: Production, Preview, Development 선택
 
 # 카카오 채널 ID
@@ -106,7 +106,7 @@ vercel --prod
 배포 완료 후 다음을 확인하세요:
 
 ### 기본 기능
-- [ ] https://geumnikkaebi.vercel.app 접속 가능
+- [ ] https://goodgeumni.vercel.app 접속 가능
 - [ ] 메인 페이지 정상 로드
 - [ ] 이미지 및 로고 정상 표시
 
@@ -130,7 +130,7 @@ vercel --prod
 
 **해결 방법**:
 1. 카카오 개발자 센터에서 Redirect URI 확인
-   - `https://geumnikkaebi.vercel.app/auth/kakao/callback` 정확히 입력되었는지 확인
+   - `https://goodgeumni.vercel.app/auth/kakao/callback` 정확히 입력되었는지 확인
 2. Vercel 환경변수 확인
    - `NEXT_PUBLIC_KAKAO_REDIRECT_URI`가 올바른지 확인
 3. 브라우저 콘솔에서 에러 메시지 확인
