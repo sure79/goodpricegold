@@ -150,15 +150,12 @@ export default function HomePage() {
               <span>📞</span>
               <span>전화상담 010-6622-9774</span>
             </a>
-            <a
-              href="http://pf.kakao.com/_Efrpn"
-              target="_blank"
-              rel="noopener noreferrer"
+            <KakaoChannelButton
               className="bg-yellow-400 text-black px-8 py-3 md:px-10 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-yellow-300 transition-all shadow-lg flex items-center justify-center gap-2"
             >
               <img src="/카톡로고.png" alt="카카오톡" className="h-5 md:h-6 w-auto" />
               <span>카톡상담</span>
-            </a>
+            </KakaoChannelButton>
           </div>
         </div>
       </div>
