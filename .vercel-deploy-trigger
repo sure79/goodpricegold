@@ -1,0 +1,7 @@
+# Vercel Deploy Trigger
+# This file is used to trigger Vercel redeployment
+# Last updated: 2025-01-24
+
+카카오 채널 ID: _xdTcxcn
+카카오 JavaScript 키: 953b0b2f6d0d9323ab7d1daabf22fc07
+Redirect URI: https://goodgeumni.vercel.app/auth/kakao/callback
