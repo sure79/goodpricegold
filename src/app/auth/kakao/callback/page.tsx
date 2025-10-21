@@ -25,6 +25,11 @@ function KakaoCallbackContent() {
         }
 
         // 카카오 SDK로 토큰 요청
+        const appKey = process.env.NEXT_PUBLIC_KAKAO_APP_KEY || '953b0b2f6d0d9323ab7d1daabf22fc07'
+        const redirectUri = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI || 'https://goodgeumni.vercel.app/auth/kakao/callback'
+
+        console.log('카카오 토큰 요청:', { appKey, redirectUri, code })
+
         const response = await fetch('https://kauth.kakao.com/oauth/token', {
           method: 'POST',
           headers: {
@@ -32,8 +37,8 @@ function KakaoCallbackContent() {
           },
           body: new URLSearchParams({
             grant_type: 'authorization_code',
-            client_id: process.env.NEXT_PUBLIC_KAKAO_APP_KEY || '',
-            redirect_uri: process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI || '',
+            client_id: appKey,
+            redirect_uri: redirectUri,
             code,
           }),
         })

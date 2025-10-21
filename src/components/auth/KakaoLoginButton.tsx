@@ -29,8 +29,12 @@ export default function KakaoLoginButton({ onSuccess, onError }: KakaoLoginButto
     }
 
     try {
+      const redirectUri = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI || 'https://goodgeumni.vercel.app/auth/kakao/callback'
+
+      console.log('카카오 로그인 시작, Redirect URI:', redirectUri)
+
       window.Kakao.Auth.authorize({
-        redirectUri: process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI || '',
+        redirectUri,
         scope: 'profile_nickname,profile_image,account_email,phone_number,name',
       })
     } catch (error) {
