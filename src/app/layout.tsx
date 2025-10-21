@@ -3,21 +3,79 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Chatbot from "@/components/common/Chatbot";
 import KakaoSDKInit from "@/components/common/KakaoSDKInit";
+import StructuredData from "@/components/seo/StructuredData";
 
 const inter = Inter({
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "착한금니 - 대한민국 NO.1 금니 매입 전문",
-  description: "15년 전통의 믿을 수 있는 금니매입 서비스. 정확한 감정, 최고가 매입, 당일 입금 보장.",
+  metadataBase: new URL('https://goodgeumni.vercel.app'),
+  title: {
+    default: "착한금니 - 대한민국 NO.1 금니 매입 전문",
+    template: "%s | 착한금니"
+  },
+  description: "15년 전통의 믿을 수 있는 금니매입 서비스. 정확한 감정, 최고가 매입, 당일 입금 보장. 금니, 금이빨, 금니 시세, 금니 매입 문의는 착한금니에서!",
+  keywords: ["금니매입", "금니", "금이빨", "금니시세", "금니가격", "금니매입업체", "금니매매", "치과금니", "금니팔기", "금니매입가격", "금니감정", "금니현금화", "중고금니", "금니업체", "금니전문", "착한금니"],
+  authors: [{ name: "착한금니" }],
+  creator: "착한금니",
+  publisher: "착한금니",
+  formatDetection: {
+    telephone: true,
+    email: false,
+    address: false,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ko_KR',
+    url: 'https://goodgeumni.vercel.app',
+    siteName: '착한금니',
+    title: '착한금니 - 대한민국 NO.1 금니 매입 전문',
+    description: '15년 전통의 믿을 수 있는 금니매입 서비스. 정확한 감정, 최고가 매입, 당일 입금 보장.',
+    images: [
+      {
+        url: '/로고3.png',
+        width: 1200,
+        height: 630,
+        alt: '착한금니 로고',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '착한금니 - 대한민국 NO.1 금니 매입 전문',
+    description: '15년 전통의 믿을 수 있는 금니매입 서비스. 정확한 감정, 최고가 매입, 당일 입금 보장.',
+    images: ['/로고3.png'],
+  },
+  verification: {
+    // 구글 서치 콘솔 인증 코드 (실제 코드로 교체 필요)
+    google: 'google-site-verification-code',
+    // 네이버 웹마스터 인증 코드 (실제 코드로 교체 필요)
+    other: {
+      'naver-site-verification': 'naver-site-verification-code',
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
       { url: '/favicon.ico', sizes: 'any' }
     ],
     apple: '/favicon.svg'
-  }
+  },
+  alternates: {
+    canonical: 'https://goodgeumni.vercel.app',
+  },
 };
 
 export default function RootLayout({
@@ -27,6 +85,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <head>
+        <StructuredData />
+      </head>
       <body className={inter.className} suppressHydrationWarning={true}>
         {children}
         <Chatbot />
