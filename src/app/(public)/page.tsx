@@ -8,6 +8,7 @@ import GoldPriceDisplay from '@/components/common/GoldPriceDisplay'
 import ApplicationStatus from '@/components/common/ApplicationStatus'
 import ReviewsDisplay from '@/components/common/ReviewsDisplay'
 import ImageSlider from '@/components/common/ImageSlider'
+import KakaoChannelButton from '@/components/common/KakaoChannelButton'
 
 export default function HomePage() {
   const { user, logout } = useAuthStore()
