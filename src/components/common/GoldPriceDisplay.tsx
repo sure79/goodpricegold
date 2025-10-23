@@ -6,8 +6,9 @@ import { GOLD_TYPES, type GoldType } from '@/types'
 interface GoldPrice {
   id: string
   date: string
-  price_inlay: number
   price_porcelain: number
+  price_inlay_s: number
+  price_inlay: number
   price_crown_pt: number
   price_crown_st: number
   price_crown_at: number
@@ -72,8 +73,9 @@ export default function GoldPriceDisplay() {
   }
 
   const goldTypeColors = {
-    inlay: { bg: 'from-yellow-400 to-yellow-500', border: 'border-yellow-500', text: 'text-yellow-400' },
     porcelain: { bg: 'from-yellow-300 to-yellow-400', border: 'border-yellow-400', text: 'text-yellow-300' },
+    inlay_s: { bg: 'from-purple-400 to-purple-500', border: 'border-purple-500', text: 'text-purple-400' },
+    inlay: { bg: 'from-yellow-400 to-yellow-500', border: 'border-yellow-500', text: 'text-yellow-400' },
     crown_pt: { bg: 'from-yellow-500 to-yellow-600', border: 'border-yellow-600', text: 'text-yellow-500' },
     crown_st: { bg: 'from-yellow-400 to-yellow-500', border: 'border-yellow-500', text: 'text-yellow-400' },
     crown_at: { bg: 'from-yellow-600 to-amber-600', border: 'border-amber-600', text: 'text-yellow-500' }

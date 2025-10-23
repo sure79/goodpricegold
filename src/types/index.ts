@@ -14,11 +14,12 @@ export interface User {
   total_amount?: number;
 }
 
-export type GoldType = 'inlay' | 'porcelain' | 'crown_pt' | 'crown_st' | 'crown_at';
+export type GoldType = 'porcelain' | 'inlay_s' | 'inlay' | 'crown_pt' | 'crown_st' | 'crown_at';
 
 export const GOLD_TYPES: Record<GoldType, string> = {
-  inlay: '인레이',
   porcelain: '포세린',
+  inlay_s: '인레이S',
+  inlay: '인레이',
   crown_pt: '크라운PT',
   crown_st: '크라운ST',
   crown_at: '크라운AT'
@@ -27,8 +28,9 @@ export const GOLD_TYPES: Record<GoldType, string> = {
 export interface GoldPrice {
   id: string;
   date: string;
-  price_inlay: number;      // 인레이
   price_porcelain: number;   // 포세린
+  price_inlay_s: number;     // 인레이S
+  price_inlay: number;       // 인레이
   price_crown_pt: number;    // 크라운PT
   price_crown_st: number;    // 크라운ST
   price_crown_at: number;    // 크라운AT

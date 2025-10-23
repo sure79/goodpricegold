@@ -14,12 +14,13 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { price_inlay, price_porcelain, price_crown_pt, price_crown_st, price_crown_at, updated_by = 'admin' } = body
+    const { price_porcelain, price_inlay_s, price_inlay, price_crown_pt, price_crown_st, price_crown_at, updated_by = 'admin' } = body
 
     const priceData = {
       date: new Date().toISOString().split('T')[0],
-      price_inlay,
       price_porcelain,
+      price_inlay_s,
+      price_inlay,
       price_crown_pt,
       price_crown_st,
       price_crown_at,

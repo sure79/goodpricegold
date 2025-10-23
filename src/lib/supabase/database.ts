@@ -394,8 +394,9 @@ export async function getCurrentGoldPrice() {
       return {
         id: 'default',
         date: today,
-        price_inlay: 161670,
         price_porcelain: 169890,
+        price_inlay_s: 165000,
+        price_inlay: 161670,
         price_crown_pt: 144310,
         price_crown_st: 112350,
         price_crown_at: 91340,
@@ -412,8 +413,9 @@ export async function getCurrentGoldPrice() {
     return {
       id: 'default',
       date: today,
-      price_inlay: 161670,
       price_porcelain: 169890,
+      price_inlay_s: 165000,
+      price_inlay: 161670,
       price_crown_pt: 144310,
       price_crown_st: 112350,
       price_crown_at: 91340,
@@ -426,8 +428,9 @@ export async function getCurrentGoldPrice() {
 export async function updateGoldPrice(price: Omit<GoldPrice, 'id'>) {
   const priceData = {
     date: price.date,
-    price_inlay: price.price_inlay,
     price_porcelain: price.price_porcelain,
+    price_inlay_s: price.price_inlay_s,
+    price_inlay: price.price_inlay,
     price_crown_pt: price.price_crown_pt,
     price_crown_st: price.price_crown_st,
     price_crown_at: price.price_crown_at,
@@ -675,8 +678,9 @@ export async function ensureTodayGoldPrice() {
     // 이전 시세를 오늘 날짜로 복사
     const newPrice = {
       date: today,
-      price_inlay: latestPrice[0].price_inlay,
       price_porcelain: latestPrice[0].price_porcelain,
+      price_inlay_s: latestPrice[0].price_inlay_s,
+      price_inlay: latestPrice[0].price_inlay,
       price_crown_pt: latestPrice[0].price_crown_pt,
       price_crown_st: latestPrice[0].price_crown_st,
       price_crown_at: latestPrice[0].price_crown_at,
@@ -689,8 +693,9 @@ export async function ensureTodayGoldPrice() {
     // 기본 시세 생성
     const defaultPrice = {
       date: today,
-      price_inlay: 161670,
       price_porcelain: 169890,
+      price_inlay_s: 165000,
+      price_inlay: 161670,
       price_crown_pt: 144310,
       price_crown_st: 112350,
       price_crown_at: 91340,

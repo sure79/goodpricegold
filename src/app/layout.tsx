@@ -48,11 +48,11 @@ export const metadata: Metadata = {
     images: ['/로고3.png'],
   },
   verification: {
-    // 구글 서치 콘솔 인증 코드 (실제 코드로 교체 필요)
-    google: 'google-site-verification-code',
-    // 네이버 웹마스터 인증 코드 (실제 코드로 교체 필요)
+    // 구글 서치 콘솔 인증 코드
+    google: 'O8cGyGYX28dEqMLB-hnF64sjV1-7cKYg-7lRqyIjRH4',
+    // 네이버 웹마스터 인증 코드
     other: {
-      'naver-site-verification': 'naver-site-verification-code',
+      'naver-site-verification': 'eb08f22b058526ddb90c357d6dc3840cd87d1915',
     },
   },
   robots: {

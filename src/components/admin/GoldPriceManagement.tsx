@@ -6,8 +6,9 @@ import { GOLD_TYPES, type GoldType } from '@/types'
 interface GoldPrice {
   id: string
   date: string
-  price_inlay: number
   price_porcelain: number
+  price_inlay_s: number
+  price_inlay: number
   price_crown_pt: number
   price_crown_st: number
   price_crown_at: number
@@ -21,8 +22,9 @@ export default function GoldPriceManagement() {
   const [saving, setSaving] = useState(false)
   const [syncing, setSyncing] = useState(false)
   const [formData, setFormData] = useState({
-    price_inlay: '',
     price_porcelain: '',
+    price_inlay_s: '',
+    price_inlay: '',
     price_crown_pt: '',
     price_crown_st: '',
     price_crown_at: ''
@@ -55,8 +57,9 @@ export default function GoldPriceManagement() {
         const data = await response.json()
         setGoldPrice(data)
         setFormData({
-          price_inlay: data.price_inlay?.toString() || '',
           price_porcelain: data.price_porcelain?.toString() || '',
+          price_inlay_s: data.price_inlay_s?.toString() || '',
+          price_inlay: data.price_inlay?.toString() || '',
           price_crown_pt: data.price_crown_pt?.toString() || '',
           price_crown_st: data.price_crown_st?.toString() || '',
           price_crown_at: data.price_crown_at?.toString() || ''
@@ -80,8 +83,9 @@ export default function GoldPriceManagement() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          price_inlay: parseInt(formData.price_inlay),
           price_porcelain: parseInt(formData.price_porcelain),
+          price_inlay_s: parseInt(formData.price_inlay_s),
+          price_inlay: parseInt(formData.price_inlay),
           price_crown_pt: parseInt(formData.price_crown_pt),
           price_crown_st: parseInt(formData.price_crown_st),
           price_crown_at: parseInt(formData.price_crown_at)
@@ -174,11 +178,12 @@ export default function GoldPriceManagement() {
 
     // formData도 업데이트 (저장을 위해)
     setFormData({
-      price_crown_at: crown_at.toString(),
-      price_crown_st: crown_st.toString(),
-      price_crown_pt: crown_pt.toString(),
+      price_porcelain: porcelain.toString(),
+      price_inlay_s: inlay_s.toString(),
       price_inlay: inlay.toString(),
-      price_porcelain: porcelain.toString()
+      price_crown_pt: crown_pt.toString(),
+      price_crown_st: crown_st.toString(),
+      price_crown_at: crown_at.toString()
     })
   }
 
@@ -224,17 +229,23 @@ export default function GoldPriceManagement() {
         {goldPrice && (
           <div className="mb-6 p-4 bg-gray-50 rounded-lg">
             <h3 className="text-sm font-medium text-gray-700 mb-3">현재 설정된 시세</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
-              <div className="flex flex-col">
-                <span className="text-xs text-gray-500 mb-1">인레이</span>
-                <span className="font-semibold text-blue-600">
-                  {formatPrice(goldPrice.price_inlay)}원
-                </span>
-              </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               <div className="flex flex-col">
                 <span className="text-xs text-gray-500 mb-1">포세린</span>
                 <span className="font-semibold text-yellow-600">
                   {formatPrice(goldPrice.price_porcelain)}원
+                </span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xs text-gray-500 mb-1">인레이S</span>
+                <span className="font-semibold text-purple-600">
+                  {formatPrice(goldPrice.price_inlay_s)}원
+                </span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xs text-gray-500 mb-1">인레이</span>
+                <span className="font-semibold text-blue-600">
+                  {formatPrice(goldPrice.price_inlay)}원
                 </span>
               </div>
               <div className="flex flex-col">
@@ -350,16 +361,16 @@ export default function GoldPriceManagement() {
                   <h4 className="text-sm font-semibold text-blue-800 mb-3">18K 기준</h4>
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-700">인레이</span>
-                      <span className="font-bold text-blue-600">{formatPrice(calculatedPrices.inlay)}원</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-500">인레이S (중간값)</span>
-                      <span className="font-medium text-gray-600">{formatPrice(calculatedPrices.inlay_s)}원</span>
-                    </div>
-                    <div className="flex justify-between items-center">
                       <span className="text-sm text-gray-700">포세린</span>
                       <span className="font-bold text-yellow-600">{formatPrice(calculatedPrices.porcelain)}원</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-700">인레이S</span>
+                      <span className="font-bold text-purple-600">{formatPrice(calculatedPrices.inlay_s)}원</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-700">인레이</span>
+                      <span className="font-bold text-blue-600">{formatPrice(calculatedPrices.inlay)}원</span>
                     </div>
                   </div>
                 </div>
