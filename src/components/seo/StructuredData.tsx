@@ -11,12 +11,15 @@ export default function StructuredData() {
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "KR",
-      "addressRegion": "대한민국"
+      "addressRegion": "울산광역시",
+      "addressLocality": "남구",
+      "streetAddress": "삼산로 280, 착한금니 빌딩",
+      "postalCode": "44705"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "37.5665",
-      "longitude": "126.9780"
+      "latitude": "35.5384",
+      "longitude": "129.3114"
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",

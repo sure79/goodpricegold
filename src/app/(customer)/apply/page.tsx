@@ -40,7 +40,7 @@ export default function ApplyPage() {
 
   const [showSuccessModal, setShowSuccessModal] = useState(false)
   const [requestNumber, setRequestNumber] = useState('')
-  const [companyAddress, setCompanyAddress] = useState('서울특별시 강남구 테헤란로 123, 착한금니 빌딩 5층')
+  const [companyAddress, setCompanyAddress] = useState('울산광역시 남구 삼산로 280, 착한금니 빌딩 5층')
 
   const {
     register,

@@ -1,4 +1,41 @@
+# *
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /apply
+Disallow: /history
+Disallow: /reviews
+Disallow: /settlements
+Disallow: /tracking
+Disallow: /auth
 
-Sitemap: https://geumnikkaebi.vercel.app/sitemap.xml
+# Googlebot
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /apply
+Disallow: /history
+Disallow: /reviews
+Disallow: /settlements
+Disallow: /tracking
+Disallow: /auth
+
+# Yeti
+User-agent: Yeti
+Allow: /
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /apply
+Disallow: /history
+Disallow: /reviews
+Disallow: /settlements
+Disallow: /tracking
+Disallow: /auth
+
+# Host
+Host: https://goodgeumni.vercel.app
+
+# Sitemaps
+Sitemap: https://goodgeumni.vercel.app/sitemap.xml

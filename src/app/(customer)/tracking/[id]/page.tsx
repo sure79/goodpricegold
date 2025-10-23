@@ -207,8 +207,8 @@ export default function TrackingPage() {
           <div className="space-y-3 text-sm text-blue-800">
             <div>
               <h4 className="font-medium">발송 주소</h4>
-              <p>서울특별시 강남구 테헤란로 123, 착한금니 빌딩 2층</p>
-              <p>우편번호: 06234</p>
+              <p>울산광역시 남구 삼산로 280, 착한금니 빌딩 2층</p>
+              <p>우편번호: 44705</p>
             </div>
             <div>
               <h4 className="font-medium">발송 시 주의사항</h4>
