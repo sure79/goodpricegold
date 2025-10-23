@@ -28,6 +28,22 @@ export default function GoldPriceManagement() {
     price_crown_at: ''
   })
 
+  // 14k, 18k 기본 입력값
+  const [baseGoldPrices, setBaseGoldPrices] = useState({
+    gold_14k: '',
+    gold_18k: ''
+  })
+
+  // 자동 계산된 가격들
+  const [calculatedPrices, setCalculatedPrices] = useState({
+    crown_at: 0,
+    crown_st: 0,
+    crown_pt: 0,
+    inlay: 0,
+    inlay_s: 0,
+    porcelain: 0
+  })
+
   useEffect(() => {
     fetchCurrentPrice()
   }, [])
@@ -113,6 +129,59 @@ export default function GoldPriceManagement() {
     }
   }
 
+  // 14k, 18k 입력 시 자동 계산
+  const handleBaseGoldPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    const numericValue = value.replace(/[^0-9]/g, '')
+
+    setBaseGoldPrices(prev => {
+      const updated = {
+        ...prev,
+        [name]: numericValue
+      }
+
+      // 자동 계산 실행
+      calculatePrices(updated.gold_14k, updated.gold_18k)
+
+      return updated
+    })
+  }
+
+  // 금니 가격 자동 계산
+  const calculatePrices = (gold14k: string, gold18k: string) => {
+    const gold14kNum = parseFloat(gold14k) || 0
+    const gold18kNum = parseFloat(gold18k) || 0
+
+    // 14k 기준 계산
+    const crown_at = Math.floor(gold14kNum * 1.2)
+    const crown_st = Math.floor(crown_at * 1.15)
+    const crown_pt = Math.floor(crown_at * 1.2)
+
+    // 18k 기준 계산
+    const inlay = Math.floor(gold18kNum * 1.2)
+    const inlay_s = Math.floor(inlay * 1.6) // 중간 계산값 (포세린 계산을 위해)
+    const porcelain = Math.floor(inlay_s * 1.3)
+
+    // 계산된 가격 업데이트
+    setCalculatedPrices({
+      crown_at,
+      crown_st,
+      crown_pt,
+      inlay,
+      inlay_s, // UI 표시용
+      porcelain
+    })
+
+    // formData도 업데이트 (저장을 위해)
+    setFormData({
+      price_crown_at: crown_at.toString(),
+      price_crown_st: crown_st.toString(),
+      price_crown_pt: crown_pt.toString(),
+      price_inlay: inlay.toString(),
+      price_porcelain: porcelain.toString()
+    })
+  }
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     // 숫자만 입력 가능하도록 필터링
@@ -195,33 +264,123 @@ export default function GoldPriceManagement() {
 
         {/* 시세 수정 폼 */}
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {Object.entries(GOLD_TYPES).map(([key, label]) => (
-              <div key={key}>
-                <label htmlFor={`price_${key}`} className="block text-sm font-medium text-gray-700 mb-2">
-                  {label} (1개당)
+          {/* 14k, 18k 기본 입력란 */}
+          <div className="bg-gradient-to-r from-yellow-50 to-blue-50 border-2 border-yellow-300 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">📊 기본 금 시세 입력</h3>
+            <p className="text-sm text-gray-600 mb-4">14k와 18k 금니 가격만 입력하면 나머지 금니 종류의 가격이 자동으로 계산됩니다.</p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="gold_14k" className="block text-lg font-bold text-gray-800 mb-2">
+                  🥇 금니 14K (1g당)
                 </label>
                 <div className="relative">
                   <input
                     type="text"
-                    id={`price_${key}`}
-                    name={`price_${key}`}
-                    value={formData[`price_${key}` as keyof typeof formData]}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder={`예: ${key === 'inlay' ? '161670' : key === 'porcelain' ? '169890' : key === 'crown_pt' ? '144310' : key === 'crown_st' ? '112350' : '91340'}`}
+                    id="gold_14k"
+                    name="gold_14k"
+                    value={baseGoldPrices.gold_14k}
+                    onChange={handleBaseGoldPriceChange}
+                    className="w-full px-4 py-3 text-lg border-2 border-yellow-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
+                    placeholder="예: 35000"
                     required
                   />
-                  <span className="absolute right-3 top-2 text-gray-500">원</span>
+                  <span className="absolute right-4 top-3 text-gray-600 font-medium">원</span>
                 </div>
-                {formData[`price_${key}` as keyof typeof formData] && (
-                  <p className="mt-1 text-sm text-gray-600">
-                    {formatPrice(parseInt(formData[`price_${key}` as keyof typeof formData]))}원
+                {baseGoldPrices.gold_14k && (
+                  <p className="mt-2 text-sm font-semibold text-yellow-700">
+                    {formatPrice(parseInt(baseGoldPrices.gold_14k))}원
                   </p>
                 )}
               </div>
-            ))}
+
+              <div>
+                <label htmlFor="gold_18k" className="block text-lg font-bold text-gray-800 mb-2">
+                  🥇 금니 18K (1g당)
+                </label>
+                <div className="relative">
+                  <input
+                    type="text"
+                    id="gold_18k"
+                    name="gold_18k"
+                    value={baseGoldPrices.gold_18k}
+                    onChange={handleBaseGoldPriceChange}
+                    className="w-full px-4 py-3 text-lg border-2 border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="예: 45000"
+                    required
+                  />
+                  <span className="absolute right-4 top-3 text-gray-600 font-medium">원</span>
+                </div>
+                {baseGoldPrices.gold_18k && (
+                  <p className="mt-2 text-sm font-semibold text-blue-700">
+                    {formatPrice(parseInt(baseGoldPrices.gold_18k))}원
+                  </p>
+                )}
+              </div>
+            </div>
           </div>
+
+          {/* 자동 계산된 금니 종류별 가격 표시 */}
+          {(baseGoldPrices.gold_14k || baseGoldPrices.gold_18k) && (
+            <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">💰 자동 계산된 금니 종류별 가격</h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {/* 14k 기준 계산 */}
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                  <h4 className="text-sm font-semibold text-yellow-800 mb-3">14K 기준</h4>
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-700">크라운 AT</span>
+                      <span className="font-bold text-red-600">{formatPrice(calculatedPrices.crown_at)}원</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-700">크라운 ST</span>
+                      <span className="font-bold text-rose-600">{formatPrice(calculatedPrices.crown_st)}원</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-700">크라운 PT</span>
+                      <span className="font-bold text-blue-700">{formatPrice(calculatedPrices.crown_pt)}원</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 18k 기준 계산 */}
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <h4 className="text-sm font-semibold text-blue-800 mb-3">18K 기준</h4>
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-700">인레이</span>
+                      <span className="font-bold text-blue-600">{formatPrice(calculatedPrices.inlay)}원</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-500">인레이S (중간값)</span>
+                      <span className="font-medium text-gray-600">{formatPrice(calculatedPrices.inlay_s)}원</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-700">포세린</span>
+                      <span className="font-bold text-yellow-600">{formatPrice(calculatedPrices.porcelain)}원</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 계산 공식 안내 */}
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                  <h4 className="text-sm font-semibold text-gray-800 mb-2">📐 계산 공식</h4>
+                  <div className="space-y-1 text-xs text-gray-600">
+                    <p><strong>14K 기준:</strong></p>
+                    <p>• 크라운 AT = 14K × 1.2</p>
+                    <p>• 크라운 ST = AT × 1.15</p>
+                    <p>• 크라운 PT = AT × 1.2</p>
+                    <p className="mt-2"><strong>18K 기준:</strong></p>
+                    <p>• 인레이 = 18K × 1.2</p>
+                    <p>• 인레이S = 인레이 × 1.6</p>
+                    <p>• 포세린 = 인레이S × 1.3</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <div className="flex items-start">
