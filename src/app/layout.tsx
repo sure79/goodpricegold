@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description: '정확한 감정, 최고가 매입, 당일 입금. 15년 전통 금니매입 전문 업체 착한금니',
     images: [
       {
-        url: '/로고3.png',
+        url: '/logo3.png',
         width: 1200,
         height: 630,
         alt: '착한금니 로고',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '착한금니 - 대한민국 NO.1 금니 매입 전문',
     description: '정확한 감정, 최고가 매입, 당일 입금. 15년 전통 금니매입 전문 업체 착한금니',
-    images: ['/로고3.png'],
+    images: ['/logo3.png'],
   },
   verification: {
     // 구글 서치 콘솔 인증 코드

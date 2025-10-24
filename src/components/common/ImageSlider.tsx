@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react'
 
 const images = [
-  '/저울속임없는.png',
-  '/상단2.png',
-  '/상단3.png',
+  '/scale-honest.png',
+  '/slide2.png',
+  '/slide3.png',
 ]
 
 export default function ImageSlider() {

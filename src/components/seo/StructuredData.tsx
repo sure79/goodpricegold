@@ -3,7 +3,7 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "착한금니",
-    "image": "https://goodgeumni.vercel.app/로고3.png",
+    "image": "https://goodgeumni.vercel.app/logo3.png",
     "description": "15년 전통의 믿을 수 있는 금니매입 서비스. 정확한 감정, 최고가 매입, 당일 입금 보장.",
     "url": "https://goodgeumni.vercel.app",
     "telephone": "010-8325-9774",

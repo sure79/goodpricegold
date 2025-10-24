@@ -50,7 +50,7 @@ export default function HomePage() {
               {/* 왼쪽: 로고 + 하단 문구 */}
               <div className="flex flex-col items-start">
                 <Link href="/" className="hover:opacity-80 transition-opacity">
-                  <img src="/로고3.png" alt="착한금니 로고" className="h-16 md:h-20 object-contain" />
+                  <img src="/logo3.png" alt="착한금니 로고" className="h-16 md:h-20 object-contain" />
                 </Link>
                 <span className="text-[10px] md:text-sm font-medium text-yellow-300 mt-1">폐금 금이빨 전문매입업체</span>
               </div>
@@ -153,7 +153,7 @@ export default function HomePage() {
             <KakaoChannelButton
               className="bg-yellow-400 text-black px-8 py-3 md:px-10 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-yellow-300 transition-all shadow-lg flex items-center justify-center gap-2"
             >
-              <img src="/카톡로고.png" alt="카카오톡" className="h-5 md:h-6 w-auto" />
+              <img src="/kakao-logo.png" alt="카카오톡" className="h-5 md:h-6 w-auto" />
               <span>카톡상담</span>
             </KakaoChannelButton>
           </div>
@@ -184,7 +184,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="w-full">
-            <img src="/금니종류2.png" alt="금니 종류 안내" className="w-full h-auto rounded-lg shadow-lg shadow-yellow-500/20 border border-yellow-600/30" />
+            <img src="/gold-types.png" alt="금니 종류 안내" className="w-full h-auto rounded-lg shadow-lg shadow-yellow-500/20 border border-yellow-600/30" />
           </div>
         </div>
       </div>
@@ -296,7 +296,7 @@ export default function HomePage() {
               {/* 회사 정보 */}
               <div>
                 <div className="flex items-center space-x-3 mb-4">
-                  <img src="/로고3.png" alt="착한금니 로고" className="h-16 w-auto" />
+                  <img src="/logo3.png" alt="착한금니 로고" className="h-16 w-auto" />
                   <h3 className="text-lg font-bold text-yellow-400">착한금니</h3>
                 </div>
                 <div className="space-y-2 text-sm text-yellow-200">
