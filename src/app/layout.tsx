@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Chatbot from "@/components/common/Chatbot";
 import KakaoSDKInit from "@/components/common/KakaoSDKInit";
@@ -89,6 +90,20 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body className={inter.className} suppressHydrationWarning={true}>
+        {/* Google Ads (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17676135432"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17676135432');
+          `}
+        </Script>
+
         {children}
         <Chatbot />
         <KakaoSDKInit />
