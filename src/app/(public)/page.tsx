@@ -32,11 +32,11 @@ export default function HomePage() {
 
   const handlePhoneCopy = async () => {
     try {
-      await navigator.clipboard.writeText('010-6622-9774')
+      await navigator.clipboard.writeText('010-8325-9774')
       alert('전화번호가 복사되었습니다!')
     } catch (err) {
       console.error('복사 실패:', err)
-      alert('전화번호: 010-6622-9774')
+      alert('전화번호: 010-8325-9774')
     }
   }
   return (
@@ -144,11 +144,11 @@ export default function HomePage() {
           {/* 전화상담 및 카톡상담 */}
           <div className="flex flex-col gap-4 justify-center max-w-md mx-auto">
             <a
-              href="tel:010-6622-9774"
+              href="tel:010-8325-9774"
               className="bg-green-600 text-white px-8 py-3 md:px-10 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-green-700 transition-all shadow-lg flex items-center justify-center gap-2"
             >
               <span>📞</span>
-              <span>전화상담 010-6622-9774</span>
+              <span>전화상담 010-8325-9774</span>
             </a>
             <KakaoChannelButton
               className="bg-yellow-400 text-black px-8 py-3 md:px-10 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-yellow-300 transition-all shadow-lg flex items-center justify-center gap-2"
@@ -311,7 +311,7 @@ export default function HomePage() {
               <div>
                 <h3 className="text-lg font-bold text-yellow-400 mb-4">고객센터</h3>
                 <div className="space-y-2 text-sm text-yellow-200">
-                  <p><strong className="text-yellow-300">전화:</strong> 010-6622-9774</p>
+                  <p><strong className="text-yellow-300">전화:</strong> 010-8325-9774</p>
                   <p><strong className="text-yellow-300">이메일:</strong> support@geumnikkaebi.com</p>
                   <p><strong className="text-yellow-300">운영시간:</strong></p>
                   <p>평일: 09:00 - 18:00</p>
@@ -326,7 +326,7 @@ export default function HomePage() {
                 <div className="space-y-2 text-sm text-yellow-200">
                   <p><strong className="text-yellow-300">택배 발송 주소:</strong></p>
                   <p>울산광역시 남구 남중로108번길 36, 2층 202호</p>
-                  <p>착한금니 감정팀 (010-6622-9774)</p>
+                  <p>착한금니 감정팀 (010-8325-9774)</p>
                   <p className="mt-4"><strong className="text-yellow-300">입금 계좌:</strong></p>
                   <p>KB국민은행 674701-04-558280</p>
                   <p>예금주: 진병관(착한금니)</p>
