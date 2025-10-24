@@ -292,7 +292,10 @@ export async function getReviews(isPublic?: boolean) {
   try {
     let query = supabase
       .from('reviews')
-      .select('*')
+      .select(`
+        *,
+        purchase_request:purchase_requests(customer_name)
+      `)
       .order('created_at', { ascending: false })
 
     if (isPublic !== undefined) {

@@ -27,11 +27,14 @@ export default function ReviewsDisplay() {
       // 공개된 후기만 가져오기
       const publicReviews = await getReviews(true)
 
-      // 사용자 이름 마스킹 처리
-      const reviewsWithMaskedNames = publicReviews.map(review => ({
-        ...review,
-        user_name: maskUserName(review.user_id)
-      }))
+      // 고객명 마스킹 처리
+      const reviewsWithMaskedNames = publicReviews.map(review => {
+        const customerName = (review as any).purchase_request?.customer_name || '익명'
+        return {
+          ...review,
+          user_name: maskName(customerName)
+        }
+      })
 
       // 최신 순으로 정렬하고 최대 5개만 표시
       const latestReviews = reviewsWithMaskedNames
@@ -45,14 +48,6 @@ export default function ReviewsDisplay() {
     } finally {
       setLoading(false)
     }
-  }
-
-  // 사용자 ID를 기반으로 마스킹된 이름 생성
-  const maskUserName = (userId: string) => {
-    const surnames = ['김', '이', '박', '최', '정', '강', '조', '윤', '장', '임']
-    const hash = userId.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
-    const surname = surnames[hash % surnames.length]
-    return `${surname}**`
   }
 
   const renderStars = (rating: number) => {
