@@ -1,41 +1,20 @@
-# *
+# robots.txt for 착한금니 (goodgeumni.vercel.app)
+
 User-agent: *
 Allow: /
-Disallow: /admin
-Disallow: /dashboard
-Disallow: /apply
-Disallow: /history
-Disallow: /reviews
-Disallow: /settlements
-Disallow: /tracking
-Disallow: /auth
 
-# Googlebot
-User-agent: Googlebot
-Allow: /
-Disallow: /admin
-Disallow: /dashboard
-Disallow: /apply
-Disallow: /history
-Disallow: /reviews
-Disallow: /settlements
-Disallow: /tracking
-Disallow: /auth
+# 주요 페이지
+Allow: /login
+Allow: /signup
+Allow: /apply
+Allow: /dashboard
+Allow: /tracking/*
 
-# Yeti
-User-agent: Yeti
-Allow: /
-Disallow: /admin
-Disallow: /dashboard
-Disallow: /apply
-Disallow: /history
-Disallow: /reviews
-Disallow: /settlements
-Disallow: /tracking
-Disallow: /auth
+# 관리자 페이지는 크롤링 차단
+Disallow: /admin/
 
-# Host
-Host: https://goodgeumni.vercel.app
+# API 엔드포인트 차단
+Disallow: /api/
 
-# Sitemaps
+# Sitemap
 Sitemap: https://goodgeumni.vercel.app/sitemap.xml

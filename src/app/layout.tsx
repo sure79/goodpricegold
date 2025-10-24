@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     default: "착한금니 - 대한민국 NO.1 금니 매입 전문",
     template: "%s | 착한금니"
   },
-  description: "15년 전통의 믿을 수 있는 금니매입 서비스. 정확한 감정, 최고가 매입, 당일 입금 보장. 금니, 금이빨, 금니 시세, 금니 매입 문의는 착한금니에서!",
+  description: "정확한 감정, 최고가 매입, 당일 입금. 15년 전통 금니매입 전문 업체 착한금니",
   keywords: ["금니매입", "금니", "금이빨", "금니시세", "금니가격", "금니매입업체", "금니매매", "치과금니", "금니팔기", "금니매입가격", "금니감정", "금니현금화", "중고금니", "금니업체", "금니전문", "착한금니"],
   authors: [{ name: "착한금니" }],
   creator: "착한금니",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     url: 'https://goodgeumni.vercel.app',
     siteName: '착한금니',
     title: '착한금니 - 대한민국 NO.1 금니 매입 전문',
-    description: '15년 전통의 믿을 수 있는 금니매입 서비스. 정확한 감정, 최고가 매입, 당일 입금 보장.',
+    description: '정확한 감정, 최고가 매입, 당일 입금. 15년 전통 금니매입 전문 업체 착한금니',
     images: [
       {
         url: '/로고3.png',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '착한금니 - 대한민국 NO.1 금니 매입 전문',
-    description: '15년 전통의 믿을 수 있는 금니매입 서비스. 정확한 감정, 최고가 매입, 당일 입금 보장.',
+    description: '정확한 감정, 최고가 매입, 당일 입금. 15년 전통 금니매입 전문 업체 착한금니',
     images: ['/로고3.png'],
   },
   verification: {
