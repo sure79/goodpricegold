@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { maskName, formatCurrency, formatDate } from '@/lib/utils'
 import { supabase } from '@/lib/supabase/client'
@@ -51,7 +52,7 @@ export default function ApplicationStatus() {
         .from('purchase_requests')
         .select('id, customer_name, estimated_price, final_price, status, created_at')
         .order('created_at', { ascending: false })
-        .limit(5)
+        .limit(7)
 
       if (error) throw error
 
@@ -146,10 +147,21 @@ export default function ApplicationStatus() {
       </div>
 
       <div className="mt-6 pt-4 border-t border-yellow-600/30">
-        <div className="flex items-center justify-center text-yellow-300 text-xs">
+        <div className="flex items-center justify-center text-yellow-300 text-xs mb-4">
           <span className="mr-1">⚡</span>
           평균 처리시간: <strong className="ml-1">2-3시간</strong>
         </div>
+        {recentPurchases.length > 0 && (
+          <div className="text-center">
+            <Link
+              href="/purchase-status"
+              className="inline-flex items-center text-yellow-400 px-4 py-2 rounded-lg font-medium hover:bg-zinc-800 transition-colors text-sm"
+            >
+              전체 매입 현황 보기
+              <span className="ml-2">→</span>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   )
