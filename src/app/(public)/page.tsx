@@ -177,10 +177,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-3">
-              금니 종류 안내
+              치과용 합금 안내
             </h2>
             <p className="text-base text-yellow-200">
-              다양한 금니 종류를 확인하세요
+              정확한 감정과 함께 다양한 금니 유형을 만나보세요.
             </p>
           </div>
           <div className="w-full">

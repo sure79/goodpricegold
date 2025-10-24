@@ -125,7 +125,7 @@ export default function GoldPriceDisplay() {
 
       <div className="mt-4 pt-4 border-t border-yellow-600/30">
         <p className="text-sm md:text-xs text-yellow-300 text-center leading-relaxed">
-          💡 함유량이 제일 높은 기준으로 실제 금액은 변동될 수 있습니다
+          💡 표준 합금 기준 단가이며, 실제 감정 시 함량이 높을 경우 금액이 인상될 수 있습니다.
         </p>
       </div>
     </div>

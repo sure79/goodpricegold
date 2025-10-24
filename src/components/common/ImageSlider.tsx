@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 
 const images = [
-  '/상단1.png',
+  '/저울속임없는.png',
   '/상단2.png',
   '/상단3.png',
 ]
