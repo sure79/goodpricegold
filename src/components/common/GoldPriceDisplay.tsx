@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { GOLD_TYPES, type GoldType } from '@/types'
+import { useCountUp } from '@/hooks/useCountUp'
 
 interface GoldPrice {
   id: string
@@ -64,6 +65,26 @@ export default function GoldPriceDisplay() {
     return new Intl.NumberFormat('ko-KR').format(price)
   }
 
+  // 각 금 종류별 카운트업 훅
+  const porcelainCount = useCountUp(goldPrice?.price_porcelain || 0, { duration: 2000, delay: 100 })
+  const inlaySCount = useCountUp(goldPrice?.price_inlay_s || 0, { duration: 2000, delay: 200 })
+  const inlayCount = useCountUp(goldPrice?.price_inlay || 0, { duration: 2000, delay: 300 })
+  const crownPtCount = useCountUp(goldPrice?.price_crown_pt || 0, { duration: 2000, delay: 400 })
+  const crownStCount = useCountUp(goldPrice?.price_crown_st || 0, { duration: 2000, delay: 500 })
+  const crownAtCount = useCountUp(goldPrice?.price_crown_at || 0, { duration: 2000, delay: 600 })
+
+  const getAnimatedPrice = (key: string) => {
+    switch (key) {
+      case 'porcelain': return porcelainCount.count
+      case 'inlay_s': return inlaySCount.count
+      case 'inlay': return inlayCount.count
+      case 'crown_pt': return crownPtCount.count
+      case 'crown_st': return crownStCount.count
+      case 'crown_at': return crownAtCount.count
+      default: return 0
+    }
+  }
+
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('ko-KR', {
       year: 'numeric',
@@ -95,8 +116,7 @@ export default function GoldPriceDisplay() {
 
       <div className="space-y-3 md:space-y-3">
         {Object.entries(GOLD_TYPES).map(([key, label]) => {
-          const priceKey = `price_${key}` as keyof GoldPrice
-          const price = goldPrice[priceKey] as number
+          const animatedPrice = getAnimatedPrice(key)
           const colors = goldTypeColors[key as GoldType]
 
           return (
@@ -112,8 +132,8 @@ export default function GoldPriceDisplay() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className={`text-2xl md:text-2xl font-bold ${colors.text}`}>
-                    {formatPrice(price)}
+                  <div className={`text-2xl md:text-2xl font-bold ${colors.text} transition-all duration-100`}>
+                    {formatPrice(animatedPrice)}
                   </div>
                   <div className="text-base md:text-sm text-yellow-200">원</div>
                 </div>

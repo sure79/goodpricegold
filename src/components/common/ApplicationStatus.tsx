@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { maskName, formatCurrency, formatDate } from '@/lib/utils'
 import { supabase } from '@/lib/supabase/client'
+import { useCountUp } from '@/hooks/useCountUp'
 
 interface RecentPurchase {
   id: string
@@ -11,6 +12,12 @@ interface RecentPurchase {
   amount: number
   status: string
   created_at: string
+}
+
+// 애니메이션된 금액 표시 컴포넌트
+function AnimatedAmount({ amount }: { amount: number }) {
+  const { count } = useCountUp(amount, { duration: 1500, delay: 0 })
+  return <>{formatCurrency(count)}</>
 }
 
 export default function ApplicationStatus() {
@@ -128,7 +135,7 @@ export default function ApplicationStatus() {
                   </div>
                   <div className="text-right">
                     <div className="font-bold text-yellow-400">
-                      {formatCurrency(purchase.amount)}
+                      <AnimatedAmount amount={purchase.amount} />
                     </div>
                     <div className={`text-xs ${statusInfo.color} font-medium`}>
                       ✓ {statusInfo.label}
