@@ -435,6 +435,7 @@ export async function updateGoldPrice(price: Omit<GoldPrice, 'id'>) {
     price_crown_st: price.price_crown_st,
     price_crown_at: price.price_crown_at,
     source: 'manual',
+    updated_by: price.updated_by || 'admin',
     updated_at: price.updated_at || new Date().toISOString()
   }
 
