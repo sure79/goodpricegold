@@ -20,6 +20,14 @@ export default function GoldPriceDisplay() {
   const [goldPrice, setGoldPrice] = useState<GoldPrice | null>(null)
   const [loading, setLoading] = useState(true)
 
+  // 각 금 종류별 카운트업 훅 (early return 전에 호출해야 함)
+  const porcelainCount = useCountUp(goldPrice?.price_porcelain || 0, { duration: 2000, delay: 100 })
+  const inlaySCount = useCountUp(goldPrice?.price_inlay_s || 0, { duration: 2000, delay: 200 })
+  const inlayCount = useCountUp(goldPrice?.price_inlay || 0, { duration: 2000, delay: 300 })
+  const crownPtCount = useCountUp(goldPrice?.price_crown_pt || 0, { duration: 2000, delay: 400 })
+  const crownStCount = useCountUp(goldPrice?.price_crown_st || 0, { duration: 2000, delay: 500 })
+  const crownAtCount = useCountUp(goldPrice?.price_crown_at || 0, { duration: 2000, delay: 600 })
+
   useEffect(() => {
     fetchGoldPrice()
   }, [])
@@ -36,6 +44,10 @@ export default function GoldPriceDisplay() {
     } finally {
       setLoading(false)
     }
+  }
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('ko-KR').format(price)
   }
 
   if (loading) {
@@ -60,18 +72,6 @@ export default function GoldPriceDisplay() {
       </div>
     )
   }
-
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('ko-KR').format(price)
-  }
-
-  // 각 금 종류별 카운트업 훅
-  const porcelainCount = useCountUp(goldPrice?.price_porcelain || 0, { duration: 2000, delay: 100 })
-  const inlaySCount = useCountUp(goldPrice?.price_inlay_s || 0, { duration: 2000, delay: 200 })
-  const inlayCount = useCountUp(goldPrice?.price_inlay || 0, { duration: 2000, delay: 300 })
-  const crownPtCount = useCountUp(goldPrice?.price_crown_pt || 0, { duration: 2000, delay: 400 })
-  const crownStCount = useCountUp(goldPrice?.price_crown_st || 0, { duration: 2000, delay: 500 })
-  const crownAtCount = useCountUp(goldPrice?.price_crown_at || 0, { duration: 2000, delay: 600 })
 
   const getAnimatedPrice = (key: string) => {
     switch (key) {
