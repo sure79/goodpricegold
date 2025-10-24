@@ -119,7 +119,8 @@ export default function ApplicationStatus() {
                       <div className="text-xs text-yellow-200">
                         {new Date(purchase.created_at).toLocaleDateString('ko-KR', {
                           month: 'short',
-                          day: 'numeric'
+                          day: 'numeric',
+                          timeZone: 'UTC'
                         })}
                       </div>
                     </div>

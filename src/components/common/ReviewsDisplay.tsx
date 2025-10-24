@@ -114,7 +114,8 @@ export default function ReviewsDisplay() {
                 <div className="text-xs text-yellow-200">
                   {new Date(review.created_at).toLocaleDateString('ko-KR', {
                     month: 'short',
-                    day: 'numeric'
+                    day: 'numeric',
+                    timeZone: 'UTC'
                   })}
                 </div>
               </div>
