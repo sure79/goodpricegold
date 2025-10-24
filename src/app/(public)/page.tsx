@@ -41,12 +41,12 @@ export default function HomePage() {
     }
   }
   return (
-    <div className="min-h-screen bg-black relative">
+    <div className="min-h-screen bg-black relative overflow-hidden">
       {/* 금가루 효과 */}
       <GoldenParticles />
 
       {/* 상단 헤더 */}
-      <header className="bg-black border-b border-yellow-600 shadow-lg relative z-10">
+      <header className="bg-black border-b border-yellow-600 shadow-lg relative" style={{ zIndex: 10 }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-4 md:py-6">
             {/* 첫 번째 줄: 로고 + 중간 텍스트(lg에서만) + 버튼 */}
@@ -105,12 +105,12 @@ export default function HomePage() {
       </header>
 
       {/* 메인 이미지 슬라이더 */}
-      <div className="relative z-10">
+      <div className="relative" style={{ zIndex: 10 }}>
         <ImageSlider />
       </div>
 
       {/* CTA 버튼 섹션 */}
-      <div className="py-8 bg-black relative z-10">
+      <div className="py-8 bg-black relative" style={{ zIndex: 10 }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 매입 신청 및 마이페이지 */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
@@ -167,7 +167,7 @@ export default function HomePage() {
       </div>
 
       {/* 소개 문구 */}
-      <div className="bg-gradient-to-b from-zinc-900 to-black py-8 border-b border-yellow-600/30 relative z-10">
+      <div className="bg-gradient-to-b from-zinc-900 to-black py-8 border-b border-yellow-600/30 relative" style={{ zIndex: 10 }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-3">
             대한민국 최고가 매입 금니 전문 업체
@@ -179,7 +179,7 @@ export default function HomePage() {
       </div>
 
       {/* 금니 종류 안내 */}
-      <div className="py-12 bg-black border-t border-yellow-600/30 relative z-10">
+      <div className="py-12 bg-black border-t border-yellow-600/30 relative" style={{ zIndex: 10 }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-3">
@@ -196,7 +196,7 @@ export default function HomePage() {
       </div>
 
       {/* 시세, 신청현황, 후기 섹션 */}
-      <div className="py-16 bg-zinc-900 relative z-10">
+      <div className="py-16 bg-zinc-900 relative" style={{ zIndex: 10 }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-yellow-400 mb-4">
@@ -216,7 +216,7 @@ export default function HomePage() {
       </div>
 
       {/* 이용 절차 안내 */}
-      <section className="py-16 bg-black border-t border-yellow-600/30 relative z-10">
+      <section className="py-16 bg-black border-t border-yellow-600/30 relative" style={{ zIndex: 10 }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center mb-12">
             <p className="text-sm font-semibold tracking-wide uppercase mb-3 text-yellow-500">이용 방법</p>
@@ -257,7 +257,7 @@ export default function HomePage() {
       </section>
 
       {/* 특징 섹션 */}
-      <div className="py-16 bg-zinc-900 relative z-10">
+      <div className="py-16 bg-zinc-900 relative" style={{ zIndex: 10 }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center mb-12">
             <p className="text-sm font-semibold tracking-wide uppercase mb-3 text-yellow-500">특징</p>
@@ -295,7 +295,7 @@ export default function HomePage() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-black border-t border-yellow-600/30 relative z-10">
+      <footer className="bg-black border-t border-yellow-600/30 relative" style={{ zIndex: 10 }}>
         <div className="text-yellow-400 py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">

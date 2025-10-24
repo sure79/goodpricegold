@@ -31,17 +31,17 @@ export default function GoldenParticles() {
     window.addEventListener('resize', resizeCanvas)
 
     // 파티클 생성
-    const particleCount = 50 // 파티클 개수 (조절 가능)
+    const particleCount = 80 // 파티클 개수 증가
     const particles: Particle[] = []
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        size: Math.random() * 3 + 1, // 1-4px
-        speedY: Math.random() * 0.5 + 0.2, // 느리게 떨어짐
-        speedX: Math.random() * 0.3 - 0.15, // 좌우로 살짝 움직임
-        opacity: Math.random() * 0.3 + 0.2, // 은은한 투명도
+        size: Math.random() * 4 + 2, // 2-6px (더 크게)
+        speedY: Math.random() * 0.8 + 0.3, // 조금 더 빠르게
+        speedX: Math.random() * 0.5 - 0.25, // 좌우 움직임
+        opacity: Math.random() * 0.5 + 0.3, // 더 밝게 (0.3-0.8)
         pulse: Math.random() * Math.PI * 2 // 반짝임 효과
       })
     }
@@ -66,9 +66,9 @@ export default function GoldenParticles() {
         if (particle.x < 0) particle.x = canvas.width
 
         // 반짝임 효과
-        const pulseOpacity = particle.opacity + Math.sin(particle.pulse) * 0.1
+        const pulseOpacity = particle.opacity + Math.sin(particle.pulse) * 0.2
 
-        // 그라디언트로 황금색 표현
+        // 그라디언트로 황금색 표현 (더 밝게)
         const gradient = ctx.createRadialGradient(
           particle.x,
           particle.y,
@@ -77,8 +77,9 @@ export default function GoldenParticles() {
           particle.y,
           particle.size
         )
-        gradient.addColorStop(0, `rgba(255, 215, 0, ${pulseOpacity})`) // 밝은 금색
-        gradient.addColorStop(0.5, `rgba(255, 193, 7, ${pulseOpacity * 0.7})`) // 황금색
+        gradient.addColorStop(0, `rgba(255, 223, 0, ${pulseOpacity})`) // 매우 밝은 금색
+        gradient.addColorStop(0.4, `rgba(255, 215, 0, ${pulseOpacity * 0.8})`) // 금색
+        gradient.addColorStop(0.7, `rgba(255, 193, 7, ${pulseOpacity * 0.5})`) // 황금색
         gradient.addColorStop(1, `rgba(255, 193, 7, 0)`) // 투명
 
         // 파티클 그리기
@@ -102,9 +103,10 @@ export default function GoldenParticles() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0"
+      className="fixed inset-0 pointer-events-none"
       style={{
-        background: 'transparent'
+        background: 'transparent',
+        zIndex: 1
       }}
     />
   )
