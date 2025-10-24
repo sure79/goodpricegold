@@ -16,7 +16,7 @@ interface RecentPurchase {
 
 // 애니메이션된 금액 표시 컴포넌트
 function AnimatedAmount({ amount }: { amount: number }) {
-  const { count } = useCountUp(amount, { duration: 1500, delay: 0 })
+  const { count } = useCountUp(amount, { duration: 1500, delay: 0, startOnView: false })
   return <>{formatCurrency(count)}</>
 }
 

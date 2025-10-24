@@ -48,6 +48,10 @@ export function useCountUp(
 
   useEffect(() => {
     if (!isVisible) return
+    if (end === 0) {
+      setCount(0)
+      return
+    }
 
     const timeoutId = setTimeout(() => {
       let startTime: number | null = null
