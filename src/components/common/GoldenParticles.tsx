@@ -32,12 +32,9 @@ export default function GoldenParticles() {
     const resizeCanvas = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
-      console.log('Canvas resized to:', canvas.width, 'x', canvas.height)
     }
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
-
-    console.log('GoldenParticles initialized')
 
     // 파티클 생성
     const particleCount = 100 // 파티클 개수 더 증가
@@ -54,8 +51,6 @@ export default function GoldenParticles() {
         pulse: Math.random() * Math.PI * 2 // 반짝임 효과
       })
     }
-
-    console.log('Created', particleCount, 'particles')
 
     // 애니메이션
     let animationFrameId: number
@@ -118,7 +113,7 @@ export default function GoldenParticles() {
       className="fixed inset-0 pointer-events-none"
       style={{
         background: 'transparent',
-        zIndex: 1
+        zIndex: 50 // 콘텐츠(z-10)보다 위에 표시
       }}
     />
   )
