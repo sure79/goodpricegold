@@ -328,8 +328,8 @@ export default function HomePage() {
                   <p>울산광역시 남구 남중로108번길 36, 2층 202호</p>
                   <p>착한금니 감정팀 (010-6622-9774)</p>
                   <p className="mt-4"><strong className="text-yellow-300">입금 계좌:</strong></p>
-                  <p>국민은행 123456-78-901234</p>
-                  <p>예금주: (주)착한금니</p>
+                  <p>KB국민은행 674701-04-558280</p>
+                  <p>예금주: 진병관(착한금니)</p>
                 </div>
               </div>
             </div>

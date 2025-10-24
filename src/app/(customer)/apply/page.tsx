@@ -274,7 +274,7 @@ export default function ApplyPage() {
                     }
                   })}
                   type="text"
-                  placeholder="123456-78-901234"
+                  placeholder="674701-04-558280"
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 {errors.account_number && (
