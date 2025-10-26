@@ -133,7 +133,7 @@ export default function GoldPriceDisplay() {
                 </div>
                 <div className="text-right">
                   <div className={`text-2xl md:text-2xl font-bold ${colors.text} transition-all duration-100`}>
-                    {formatPrice(animatedPrice)}
+                    ~{formatPrice(animatedPrice)}
                   </div>
                   <div className="text-base md:text-sm text-yellow-200">원</div>
                 </div>
