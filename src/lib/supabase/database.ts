@@ -659,15 +659,8 @@ export async function getGoldPriceHistory(days: number = 30) {
       return []
     }
 
-    // 데이터를 코드에서 사용하는 형태로 변환
-    const historyData = data?.map(item => ({
-      ...item,
-      base_price_18k: item.price_18k,
-      base_price_14k: item.price_14k,
-      updated_by: 'admin'
-    })) || []
-
-    return historyData as GoldPrice[]
+    // 데이터 그대로 반환 (이미 올바른 형식)
+    return (data || []) as GoldPrice[]
   } catch (error) {
     console.error('Get gold price history failed:', error)
     return []

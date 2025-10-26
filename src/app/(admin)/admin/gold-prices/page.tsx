@@ -2,13 +2,17 @@
 
 import { useState, useEffect } from 'react'
 import { formatCurrency, formatDate } from '@/lib/utils'
+import { GOLD_TYPES } from '@/types'
 
 interface GoldPriceHistory {
   id: string
   date: string
-  price_18k: number
-  price_14k: number
-  price_24k: number
+  price_porcelain: number
+  price_inlay_s: number
+  price_inlay: number
+  price_crown_pt: number
+  price_crown_st: number
+  price_crown_at: number
   source: string
   updated_at: string
 }
@@ -69,28 +73,40 @@ export default function GoldPriceHistoryPage() {
       <div className="bg-white shadow rounded-lg">
         <div className="px-6 py-4 border-b border-gray-200">
           <h2 className="text-lg font-medium text-gray-900">시세 변동 내역</h2>
+          <p className="text-sm text-gray-600 mt-1">
+            모든 금액은 1g당 매입가입니다.
+          </p>
         </div>
 
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   날짜
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  24K 시세
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  포세린
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  18K 시세
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  인레이S
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  14K 시세
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  인레이
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  크라운PT
+                </th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  크라운ST
+                </th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  크라운AT
+                </th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   등록 방법
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   업데이트 시간
                 </th>
               </tr>
@@ -98,25 +114,40 @@ export default function GoldPriceHistoryPage() {
             <tbody className="bg-white divide-y divide-gray-200">
               {currentItems.map((item) => (
                 <tr key={item.id} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  <td className="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                     {formatDate(item.date)}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900">
                     <span className="font-semibold text-yellow-600">
-                      {formatCurrency(item.price_24k)}원/g
+                      {formatCurrency(item.price_porcelain)}원
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <span className="font-semibold text-purple-600">
+                      {formatCurrency(item.price_inlay_s)}원
+                    </span>
+                  </td>
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900">
                     <span className="font-semibold text-blue-600">
-                      {formatCurrency(item.price_18k)}원/g
+                      {formatCurrency(item.price_inlay)}원
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900">
                     <span className="font-semibold text-blue-700">
-                      {formatCurrency(item.price_14k)}원/g
+                      {formatCurrency(item.price_crown_pt)}원
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <span className="font-semibold text-rose-600">
+                      {formatCurrency(item.price_crown_st)}원
+                    </span>
+                  </td>
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <span className="font-semibold text-red-600">
+                      {formatCurrency(item.price_crown_at)}원
+                    </span>
+                  </td>
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
                     <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
                       item.source === 'manual'
                         ? 'bg-blue-100 text-blue-800'
@@ -125,7 +156,7 @@ export default function GoldPriceHistoryPage() {
                       {item.source === 'manual' ? '수동 입력' : '자동 동기화'}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
                     {new Date(item.updated_at).toLocaleString('ko-KR')}
                   </td>
                 </tr>
