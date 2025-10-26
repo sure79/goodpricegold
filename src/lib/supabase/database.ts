@@ -382,33 +382,51 @@ export async function getCurrentGoldPrice() {
   try {
     const today = new Date().toISOString().split('T')[0]
 
-    const { data, error } = await supabase
+    // 1. 먼저 오늘 날짜 데이터 조회
+    let { data, error } = await supabase
       .from('gold_prices')
       .select('*')
       .eq('date', today)
       .single()
 
-    if (error && error.code !== 'PGRST116') {
-      console.warn('Gold prices table not found, using default values:', error)
+    // 2. 오늘 날짜 데이터가 없으면 가장 최근 데이터 조회
+    if (!data || error?.code === 'PGRST116') {
+      console.log('오늘 날짜 데이터가 없습니다. 가장 최근 데이터를 조회합니다.')
+      const { data: latestData, error: latestError } = await supabase
+        .from('gold_prices')
+        .select('*')
+        .lte('date', today) // 오늘 이전 또는 오늘
+        .order('date', { ascending: false })
+        .limit(1)
+        .single()
+
+      if (latestData) {
+        console.log('가장 최근 데이터 조회 성공:', latestData.date)
+        return latestData as GoldPrice
+      }
+
+      if (latestError && latestError.code !== 'PGRST116') {
+        console.warn('Gold prices table error:', latestError)
+      }
+    } else if (data) {
+      // 오늘 날짜 데이터가 있으면 반환
+      return data as GoldPrice
     }
 
-    // 데이터가 없으면 기본값 반환
-    if (!data) {
-      return {
-        id: 'default',
-        date: today,
-        price_porcelain: 169890,
-        price_inlay_s: 165000,
-        price_inlay: 161670,
-        price_crown_pt: 144310,
-        price_crown_st: 112350,
-        price_crown_at: 91340,
-        updated_by: 'system',
-        updated_at: new Date().toISOString()
-      } as GoldPrice
-    }
-
-    return data as GoldPrice
+    // 3. 데이터가 전혀 없으면 기본값 반환
+    console.log('데이터베이스에 금 시세 데이터가 없습니다. 기본값을 사용합니다.')
+    return {
+      id: 'default',
+      date: today,
+      price_porcelain: 169890,
+      price_inlay_s: 165000,
+      price_inlay: 161670,
+      price_crown_pt: 144310,
+      price_crown_st: 112350,
+      price_crown_at: 91340,
+      updated_by: 'system',
+      updated_at: new Date().toISOString()
+    } as GoldPrice
   } catch (error) {
     console.warn('Failed to fetch gold price, using defaults:', error)
     // 에러 발생시에도 기본값 반환
