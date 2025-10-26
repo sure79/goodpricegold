@@ -1,47 +1,16 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-
-// 카카오톡 채널 챗봇 버튼만 남기기 (일반 챗봇 제거)
+// 카카오톡 채널 직접 링크로 이동 (로그인 불필요)
 export default function Chatbot() {
-  const [isKakaoReady, setIsKakaoReady] = useState(false)
-
-  useEffect(() => {
-    const checkKakao = setInterval(() => {
-      if (typeof window !== 'undefined' && window.Kakao && window.Kakao.isInitialized()) {
-        setIsKakaoReady(true)
-        clearInterval(checkKakao)
-      }
-    }, 100)
-
-    return () => clearInterval(checkKakao)
-  }, [])
-
   const handleKakaoChat = () => {
-    if (!isKakaoReady || !window.Kakao) {
-      alert('카카오 SDK가 아직 로드되지 않았습니다. 잠시 후 다시 시도해주세요.')
-      return
-    }
-
-    const channelId = process.env.NEXT_PUBLIC_KAKAO_CHANNEL_ID || '_xdTcxcn'
-
-    console.log('카카오톡 채널 챗봇 열기:', channelId)
-
-    try {
-      window.Kakao.Channel.chat({
-        channelPublicId: channelId,
-      })
-    } catch (error) {
-      console.error('카카오톡 채널 챗봇 오류:', error)
-      alert('카카오톡 채널을 열 수 없습니다. 잠시 후 다시 시도해주세요.')
-    }
+    // 카카오톡 채널 링크로 새 창 열기
+    window.open('http://pf.kakao.com/_xdTcxcn', '_blank', 'noopener,noreferrer')
   }
 
   return (
     <button
       onClick={handleKakaoChat}
-      disabled={!isKakaoReady}
-      className="fixed bottom-6 right-6 bg-[#FEE500] text-[#3c1e1e] p-4 rounded-full shadow-lg hover:bg-[#FDD835] transition-all z-50 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+      className="fixed bottom-6 right-6 bg-[#FEE500] text-[#3c1e1e] p-4 rounded-full shadow-lg hover:bg-[#FDD835] transition-all z-50 flex items-center gap-2"
       title="카카오톡 채널로 문의하기"
     >
       <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
