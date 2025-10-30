@@ -10,6 +10,7 @@ import ReviewsDisplay from '@/components/common/ReviewsDisplay'
 import ImageSlider from '@/components/common/ImageSlider'
 import KakaoChannelButton from '@/components/common/KakaoChannelButton'
 import GoldenParticles from '@/components/common/GoldenParticles'
+import PromotionBanner from '@/components/common/PromotionBanner'
 
 export default function HomePage() {
   const { user, logout } = useAuthStore()
@@ -44,6 +45,9 @@ export default function HomePage() {
     <div className="min-h-screen bg-black relative overflow-hidden">
       {/* 금가루 효과 */}
       <GoldenParticles />
+
+      {/* 프로모션 배너 */}
+      <PromotionBanner />
 
       {/* 상단 헤더 */}
       <header className="bg-black border-b border-yellow-600 shadow-lg relative" style={{ zIndex: 10 }}>
