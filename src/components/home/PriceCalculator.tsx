@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase/client'
 import { formatCurrency } from '@/lib/utils'
@@ -24,9 +24,34 @@ export default function PriceCalculator() {
     fetchGoldPrices()
   }, [])
 
+  const calculatePrice = useCallback(() => {
+    if (!goldPrices) {
+      setEstimatedPrice(0)
+      return
+    }
+
+    const weightNum = parseFloat(weight)
+    if (!weight || isNaN(weightNum) || weightNum <= 0) {
+      setEstimatedPrice(0)
+      return
+    }
+
+    // 크라운at: 14k 시세 기준 (약 58% 금 함량)
+    // 인레이: 18k 시세 기준 (약 75% 금 함량)
+    let pricePerGram = 0
+    if (selectedType === 'crown_at') {
+      pricePerGram = goldPrices.gold_14k
+    } else {
+      pricePerGram = goldPrices.gold_18k
+    }
+
+    const totalPrice = Math.floor(pricePerGram * weightNum)
+    setEstimatedPrice(totalPrice)
+  }, [goldPrices, weight, selectedType])
+
   useEffect(() => {
     calculatePrice()
-  }, [selectedType, weight, goldPrices])
+  }, [calculatePrice])
 
   const fetchGoldPrices = async () => {
     try {
@@ -46,31 +71,6 @@ export default function PriceCalculator() {
     } finally {
       setLoading(false)
     }
-  }
-
-  const calculatePrice = () => {
-    if (!goldPrices || !weight) {
-      setEstimatedPrice(0)
-      return
-    }
-
-    const weightNum = parseFloat(weight)
-    if (isNaN(weightNum) || weightNum <= 0) {
-      setEstimatedPrice(0)
-      return
-    }
-
-    // 크라운at: 14k 시세 기준 (약 58% 금 함량)
-    // 인레이: 18k 시세 기준 (약 75% 금 함량)
-    let pricePerGram = 0
-    if (selectedType === 'crown_at') {
-      pricePerGram = goldPrices.gold_14k
-    } else {
-      pricePerGram = goldPrices.gold_18k
-    }
-
-    const totalPrice = Math.floor(pricePerGram * weightNum)
-    setEstimatedPrice(totalPrice)
   }
 
   const handleApplyClick = () => {
