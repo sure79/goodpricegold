@@ -11,6 +11,7 @@ import ImageSlider from '@/components/common/ImageSlider'
 import KakaoChannelButton from '@/components/common/KakaoChannelButton'
 import GoldenParticles from '@/components/common/GoldenParticles'
 import PromotionBanner from '@/components/common/PromotionBanner'
+import EventPopup from '@/components/common/EventPopup'
 
 export default function HomePage() {
   const { user, logout } = useAuthStore()
@@ -43,6 +44,9 @@ export default function HomePage() {
   }
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* 이벤트 팝업 */}
+      <EventPopup />
+
       {/* 금가루 효과 */}
       <GoldenParticles />
 
