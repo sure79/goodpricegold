@@ -2,13 +2,11 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
-import { supabase } from '@/lib/supabase/client'
 import { formatCurrency } from '@/lib/utils'
 
 interface GoldPrice {
-  gold_18k: number
-  gold_14k: number
-  gold_24k: number
+  base_price_18k: number
+  base_price_14k: number
   updated_at: string
 }
 
@@ -40,9 +38,9 @@ export default function PriceCalculator() {
     // 인레이: 18k 시세 기준 (약 75% 금 함량)
     let pricePerGram = 0
     if (selectedType === 'crown_at') {
-      pricePerGram = goldPrices.gold_14k
+      pricePerGram = goldPrices.base_price_14k
     } else {
-      pricePerGram = goldPrices.gold_18k
+      pricePerGram = goldPrices.base_price_18k
     }
 
     const totalPrice = Math.floor(pricePerGram * weightNum)
@@ -55,19 +53,20 @@ export default function PriceCalculator() {
 
   const fetchGoldPrices = async () => {
     try {
-      const { data, error } = await supabase
-        .from('gold_prices')
-        .select('gold_18k, gold_14k, gold_24k, updated_at')
-        .order('updated_at', { ascending: false })
-        .limit(1)
-        .single()
-
-      if (error) throw error
-      if (data) {
-        setGoldPrices(data)
+      const response = await fetch('/api/gold-price/current')
+      if (!response.ok) {
+        throw new Error('API 호출 실패')
       }
+      const data = await response.json()
+      setGoldPrices(data)
     } catch (error) {
       console.error('시세 조회 실패:', error)
+      // 기본값 설정
+      setGoldPrices({
+        base_price_18k: 85000,
+        base_price_14k: 66000,
+        updated_at: new Date().toISOString()
+      })
     } finally {
       setLoading(false)
     }
@@ -170,7 +169,7 @@ export default function PriceCalculator() {
           <div className="text-xs text-yellow-200/80">
             {goldPrices && (
               <>
-                기준 시세: {selectedType === 'crown_at' ? '14k' : '18k'} {formatCurrency(selectedType === 'crown_at' ? goldPrices.gold_14k : goldPrices.gold_18k)}/g
+                기준 시세: {selectedType === 'crown_at' ? '14k' : '18k'} {formatCurrency(selectedType === 'crown_at' ? goldPrices.base_price_14k : goldPrices.base_price_18k)}/g
                 <br />
                 최종 금액은 정밀 감정 후 확정됩니다
               </>
