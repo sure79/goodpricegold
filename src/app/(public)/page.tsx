@@ -12,6 +12,8 @@ import KakaoChannelButton from '@/components/common/KakaoChannelButton'
 import GoldenParticles from '@/components/common/GoldenParticles'
 import PromotionBanner from '@/components/common/PromotionBanner'
 import EventPopup from '@/components/common/EventPopup'
+import PriceCalculator from '@/components/home/PriceCalculator'
+import FAQ from '@/components/home/FAQ'
 
 export default function HomePage() {
   const { user, logout } = useAuthStore()
@@ -117,6 +119,13 @@ export default function HomePage() {
         <ImageSlider />
       </div>
 
+      {/* 간편 견적 계산기 */}
+      <div className="py-8 bg-black relative" style={{ zIndex: 10 }}>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <PriceCalculator />
+        </div>
+      </div>
+
       {/* CTA 버튼 섹션 */}
       <div className="py-8 bg-black relative" style={{ zIndex: 10 }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -140,10 +149,10 @@ export default function HomePage() {
             ) : (
               <>
                 <Link
-                  href="/signup"
+                  href="/apply"
                   className="bg-yellow-500 text-black px-8 py-3 md:px-10 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-yellow-400 transition-all shadow-lg shadow-yellow-500/50 text-center"
                 >
-                  매입 신청
+                  매입 신청 (회원가입 불필요)
                 </Link>
                 <Link
                   href="/login"
@@ -301,6 +310,9 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
+      {/* FAQ 섹션 */}
+      <FAQ />
 
       {/* Footer */}
       <footer className="bg-black border-t border-yellow-600/30 relative" style={{ zIndex: 10 }}>
