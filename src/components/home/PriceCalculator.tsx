@@ -5,9 +5,9 @@ import { useRouter } from 'next/navigation'
 import { formatCurrency } from '@/lib/utils'
 
 interface GoldPrice {
-  base_price_18k: number
-  base_price_14k: number
-  updated_at: string
+  price_crown_at: number
+  price_inlay: number
+  date: string
 }
 
 export default function PriceCalculator() {
@@ -34,13 +34,13 @@ export default function PriceCalculator() {
       return
     }
 
-    // 크라운at: 14k 시세 기준 (약 58% 금 함량)
-    // 인레이: 18k 시세 기준 (약 75% 금 함량)
+    // 크라운at: 메인 페이지 실시간 시세의 크라운at 가격
+    // 인레이: 메인 페이지 실시간 시세의 인레이 가격
     let pricePerGram = 0
     if (selectedType === 'crown_at') {
-      pricePerGram = goldPrices.base_price_14k
+      pricePerGram = goldPrices.price_crown_at
     } else {
-      pricePerGram = goldPrices.base_price_18k
+      pricePerGram = goldPrices.price_inlay
     }
 
     const totalPrice = Math.floor(pricePerGram * weightNum)
@@ -61,11 +61,11 @@ export default function PriceCalculator() {
       setGoldPrices(data)
     } catch (error) {
       console.error('시세 조회 실패:', error)
-      // 기본값 설정
+      // 기본값 설정 (메인 페이지 실시간 시세와 동일한 구조)
       setGoldPrices({
-        base_price_18k: 85000,
-        base_price_14k: 66000,
-        updated_at: new Date().toISOString()
+        price_crown_at: 66000,
+        price_inlay: 85000,
+        date: new Date().toISOString().split('T')[0]
       })
     } finally {
       setLoading(false)
@@ -116,7 +116,7 @@ export default function PriceCalculator() {
             >
               <div className="text-lg mb-1">👑</div>
               <div className="text-sm">크라운 at</div>
-              <div className="text-xs text-gray-500 mt-1">14k 기준</div>
+              <div className="text-xs text-gray-500 mt-1">실시간 시세 반영</div>
             </button>
             <button
               type="button"
@@ -129,7 +129,7 @@ export default function PriceCalculator() {
             >
               <div className="text-lg mb-1">🦷</div>
               <div className="text-sm">인레이</div>
-              <div className="text-xs text-gray-500 mt-1">18k 기준</div>
+              <div className="text-xs text-gray-500 mt-1">실시간 시세 반영</div>
             </button>
           </div>
         </div>
@@ -169,7 +169,7 @@ export default function PriceCalculator() {
           <div className="text-xs text-yellow-200/80">
             {goldPrices && (
               <>
-                기준 시세: {selectedType === 'crown_at' ? '14k' : '18k'} {formatCurrency(selectedType === 'crown_at' ? goldPrices.base_price_14k : goldPrices.base_price_18k)}/g
+                기준 시세: {selectedType === 'crown_at' ? '크라운at' : '인레이'} {formatCurrency(selectedType === 'crown_at' ? goldPrices.price_crown_at : goldPrices.price_inlay)}/g
                 <br />
                 최종 금액은 정밀 감정 후 확정됩니다
               </>
