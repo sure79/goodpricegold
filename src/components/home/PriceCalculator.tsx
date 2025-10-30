@@ -60,13 +60,13 @@ export default function PriceCalculator() {
       return
     }
 
-    // 크라운at: 18k 시세 기준 (약 75% 금 함량)
-    // 인레이: 14k 시세 기준 (약 58% 금 함량)
+    // 크라운at: 14k 시세 기준 (약 58% 금 함량)
+    // 인레이: 18k 시세 기준 (약 75% 금 함량)
     let pricePerGram = 0
     if (selectedType === 'crown_at') {
-      pricePerGram = goldPrices.gold_18k
-    } else {
       pricePerGram = goldPrices.gold_14k
+    } else {
+      pricePerGram = goldPrices.gold_18k
     }
 
     const totalPrice = Math.floor(pricePerGram * weightNum)
@@ -117,7 +117,7 @@ export default function PriceCalculator() {
             >
               <div className="text-lg mb-1">👑</div>
               <div className="text-sm">크라운 at</div>
-              <div className="text-xs text-gray-500 mt-1">18k 기준</div>
+              <div className="text-xs text-gray-500 mt-1">14k 기준</div>
             </button>
             <button
               type="button"
@@ -130,7 +130,7 @@ export default function PriceCalculator() {
             >
               <div className="text-lg mb-1">🦷</div>
               <div className="text-sm">인레이</div>
-              <div className="text-xs text-gray-500 mt-1">14k 기준</div>
+              <div className="text-xs text-gray-500 mt-1">18k 기준</div>
             </button>
           </div>
         </div>
@@ -170,7 +170,7 @@ export default function PriceCalculator() {
           <div className="text-xs text-yellow-200/80">
             {goldPrices && (
               <>
-                기준 시세: {selectedType === 'crown_at' ? '18k' : '14k'} {formatCurrency(selectedType === 'crown_at' ? goldPrices.gold_18k : goldPrices.gold_14k)}/g
+                기준 시세: {selectedType === 'crown_at' ? '14k' : '18k'} {formatCurrency(selectedType === 'crown_at' ? goldPrices.gold_14k : goldPrices.gold_18k)}/g
                 <br />
                 최종 금액은 정밀 감정 후 확정됩니다
               </>
