@@ -74,14 +74,14 @@ export default function ImageSlider() {
           </button>
 
           {/* 인디케이터 (점) */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
             {images.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all ${
+                className={`w-1.5 h-1.5 rounded-full transition-all ${
                   index === currentIndex
-                    ? 'bg-white w-8'
+                    ? 'bg-white w-4'
                     : 'bg-white/50 hover:bg-white/70'
                 }`}
                 aria-label={`슬라이드 ${index + 1}로 이동`}

@@ -50,21 +50,6 @@ export default function PromotionBanner() {
         ))}
       </div>
 
-      {/* 인디케이터 */}
-      <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 flex gap-1.5">
-        {PROMOTIONS.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-1.5 h-1.5 rounded-full transition-all ${
-              index === currentIndex
-                ? 'bg-white w-4'
-                : 'bg-white/50 hover:bg-white/75'
-            }`}
-            aria-label={`프로모션 ${index + 1}`}
-          />
-        ))}
-      </div>
     </div>
   )
 }
