@@ -110,7 +110,12 @@ export default function GoldPriceDisplay() {
           실시간 금니 시세
         </div>
         <div className="text-yellow-300 text-base md:text-sm font-medium">
-          {formatDate(goldPrice.date)} 기준
+          {new Date().toLocaleDateString('ko-KR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            timeZone: 'Asia/Seoul'
+          })}
         </div>
       </div>
 
